@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs nav-stacked">
+    <li {% if request.path.endswith("profile") %}class="active"{% endif %}>
+        <a href="{{ url_for("user.info") }}">用户资料</a>
+    </li>
+    <li {% if request.path.endswith("password") %}class="active"{% endif %}>
+        <a href="{{ url_for("user.reset_password") }}">修改密码</a>
+    </li>
+    <li {% if request.path.endswith("email") %}class="active"{% endif %}>
+        <a href="{{ url_for("user.reset_email") }}">修改邮箱</a>
+    </li>
+</ul>

@@ -1,0 +1,62 @@
+{% extends "mid_base.html" %}
+{% block mid %}
+    <div class="page-header">
+        <h1>订单详情<small></small></h1>
+    </div>
+    <div class="pull-right"><button class="btn btn-primary">取消订单</button></div>
+    <blockquote>
+        <p>订单属性</p>
+        <small>订单基本属性</small>
+    </blockquote>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>生成时间</td>
+            <td>订单号</td>
+            <td>折扣金额</td>
+            <td>合计金额</td>
+            <td>状态</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2012年10月1日22时22分</td>
+            <td><strong>AP002313</strong></td>
+            <td>3000$</td>
+            <td>3000$</td>
+            <td>正在处理</td>
+        </tr>
+        </tbody>
+    </table>
+    <blockquote>
+        <p>订单明细</p>
+        <small>订单包含各类主机属性</small>
+    </blockquote>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>主机名称</td>
+            <td>操作系统</td>
+            <td>CPU</td>
+            <td>内存</td>
+            <td>存储</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>经济A型</td>
+            <td>CentOS6.2</td>
+            <td>1核</td>
+            <td>512M</td>
+            <td>10G</td>
+        </tr>
+        <tr>
+            <td>经济B型</td>
+            <td>CentOS6.2</td>
+            <td>1核</td>
+            <td>512M</td>
+            <td>10G</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

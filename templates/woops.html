@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="center">
+        <div class="hero-unit">
+            <h1>ORZ...出错了</h1>
+            <p>{{ error|safe }}</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="{{ next }}">
+                    继续访问
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

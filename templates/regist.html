@@ -1,0 +1,43 @@
+{% extends "mid_base.html"%}
+{% block mid %}
+    {% if errors %}
+        {% for err in errors %}
+            <div class="alert alert-danger"><span>{{ err }}</span><a class="close" data-dismiss="alert" href="#">&times;</a></div>
+        {% endfor %}
+    {% endif %}
+    <form class="form-horizontal" method="POST" action="">
+        <legend>注册云端用户</legend>
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">注册邮箱</label>
+            <div class="controls">
+                <div class="input-prepend">
+                <span class="add-on">@</span><input type="text" id="inputEmail" name="login_name" placeholder="输入注册邮箱地址">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">登陆密码</label>
+            <div class="controls">
+                <input type="password" id="inputPassword" name="password" placeholder="输入登陆密码">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="checkPassword">再次输入密码</label>
+            <div class="controls">
+                <input type="password" id="checkPassword" name="confirm_password" placeholder="再次输入密码">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="code">验证码</label>
+            <div class="controls">
+                <input type="text" id="code" class="span1" name="code" placeholder="验证码">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls"><a href="#">《注册协议》</a></div>
+        </div>
+        <div class="control-group">
+            <div class="controls"><button class="btn btn-primary" type="submit">点击这里注册艾普云计算</button></div>
+        </div>
+    </form>
+{% endblock %}

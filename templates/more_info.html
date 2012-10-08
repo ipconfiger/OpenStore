@@ -1,0 +1,37 @@
+{% extends "base_cal2.html" %}
+{% block left %}
+{% include "user_nav.html" %}
+{% endblock %}
+{% block main %}
+<form class="form-horizontal" method="POST">
+    <legend>修改用户资料</legend>
+    <div class="control-group">
+        <label class="control-label" for="companyName">公司名称</label>
+        <div class="controls">
+            <input type="text" id="companyName" name="company_name" placeholder="公司名称" value="{{ user_profile.company_name }}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="contact">联系人</label>
+        <div class="controls">
+            <input type="text" id="contact" name="contact" placeholder="联系人" value="{{ user_profile.contact_name }}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="contactPhone">联系电话</label>
+        <div class="controls">
+            <input type="text" id="contactPhone" name="mobile" placeholder="联系电话" value="{{ user_profile.mobile }}">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="contactAddr">联系地址</label>
+        <div class="controls">
+            <input type="text" id="contactAddr" name="addr" placeholder="联系地址" value="{{ user_profile.company_addr }}">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls"><button class="btn btn-primary" type="submit">保存修改</button></div>
+    </div>
+</form>
+
+{% endblock %}

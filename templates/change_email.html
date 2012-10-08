@@ -1,0 +1,30 @@
+{% extends "base_cal2.html" %}
+{% block left %}
+    {% include "user_nav.html" %}
+{% endblock %}
+
+{% block main %}
+    <form class="form-horizontal" method="POST">
+        <legend>修改注册邮箱地址</legend>
+        <div class="control-group">
+            <label class="control-label" for="password">登陆密码</label>
+            <div class="controls">
+                <input type="password" id="password" name="password" placeholder="输入当前的登陆密码">
+                <p>
+                    必须输入当前登陆密码以确认身份
+                </p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="new_email">新邮箱地址</label>
+            <div class="controls">
+                <div class="input-append">
+                    <input name="email" class="span3" id="new_email" size="30" type="text"><button class="btn" type="submit" onclick="pop_alert('err','test');">发起申请</button>
+                </div>
+                <p>
+                    提交后系统会向新邮箱地址发出确认邮件，点击邮件中连接确认修改注册邮箱
+                </p>
+            </div>
+        </div>
+    </form>
+{% endblock %}

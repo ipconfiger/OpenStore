@@ -1,0 +1,42 @@
+{% extends "mid_base.html" %}
+{% block mid %}
+<div class="page-header">
+    <h1>购物车<small>预定主机列表</small></h1>
+</div>
+<div class="pull-right"><button class="btn btn-primary">提交订单</button></div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>主机名称</td>
+            <td>操作系统</td>
+            <td>CPU</td>
+            <td>内存</td>
+            <td>存储</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>经济A型</td>
+            <td>CentOS6.2</td>
+            <td>1核</td>
+            <td>512M</td>
+            <td>10G</td>
+            <td>
+                <button class="btn btn-danger">去除</button>
+           </td>
+        </tr>
+        <tr>
+            <td>经济B型</td>
+            <td>CentOS6.2</td>
+            <td>1核</td>
+            <td>512M</td>
+            <td>10G</td>
+            <td>
+                <button class="btn btn-danger">去除</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
