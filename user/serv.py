@@ -52,6 +52,12 @@ def get_user(user_id):
     except:
         pass
 
+def get_user_login(user_id):
+    return g.db.query(UserLogin).get(user_id)
+
+def get_user_account(user_id):
+    return g.db.query(UserAccount).filter(UserAccount.user_id==user_id).one()
+
 
 def send_lock_request(ctl,user_id):
     import uuid

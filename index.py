@@ -1,7 +1,8 @@
 # encoding: utf-8
 
-from flask import Blueprint, render_template, abort, flash, get_flashed_messages, request
+from flask import Blueprint, render_template, abort, flash, get_flashed_messages, request, g
 from jinja2 import TemplateNotFound
+from utils import login_required
 
 index = Blueprint('index', __name__,template_folder='templates')
 
@@ -10,7 +11,16 @@ def index_():
     return render_template("index.html")
 
 @index.route('/dashboard')
+@login_required
 def dashboard():
+    from product.serv import get_unpay_order, get_user_product, get_product
+    from user.serv import get_user_login
+    user = get_user_login(g.current_login_id)
+    orders = get_unpay_order(user)
+    products = get_user_product(user)
+    for userproduct in products:
+        product = get_product(userproduct.product_key)
+        setattr(userproduct,"product",product)
     return render_template("dashboard.html", **locals())
 
 @index.route('/woops')

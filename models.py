@@ -233,7 +233,6 @@ class OrderProduct(Base):
     user_id = Column(Integer)              #关联用户编号
     product_key = Column(String(20),ForeignKey("product.key")) #关联产品ID
     product = relationship('Product',uselist = False,remote_side=[Product.key]) #关联产品对象
-    image_id = Column(String(36))   #操作系统镜像编号
     pay_type = Column(Integer)      #租用类型 0－按月 1－按年
     price = Column(Integer)         #费用单价
     pay_timelimit = Column(Integer) #付费时限 按月就是月数，按年就是年数
@@ -241,12 +240,9 @@ class OrderProduct(Base):
     favor_fee = Column(Integer)     #优惠价格
     status = Column(Integer)        #订单状态 0-等待执行 1-已经部署 10－用户自己取消 11-操作员取消 12-系统自动取消 13-失效
 
-    __table_args__ = (
-        UniqueConstraint(order_id,product_key,),
-        TABLEARGS
-    ) 
+    __table_args__ = TABLEARGS
 
-    def __init__(self, user, order, product, image_id, pay_type, limit, favor = None):
+    def __init__(self, user, order, product, pay_type, limit, favor = None):
         """
         初始化订单包含产品的数据
         @user: 用户登陆对象
@@ -259,14 +255,16 @@ class OrderProduct(Base):
         self.order_id = order.id
         self.user_id = user.id
         self.product_key = product.key
-        self.image_id = image_id
         self.pay_type = pay_type
         if pay_type:
             self.price = product.yearly_price
         else:
             self.price = product.monthly_price
         self.pay_timelimit = limit
-        self.favor_fee =favor.yearly_price if pay_type else favor.monthly_price
+        if favor:
+            self.favor_fee = favor.yearly_price if pay_type else favor.monthly_price
+        else:
+            self.favor_fee = self.price * limit
         self.fee = self.price * limit if not favor else self.favor_fee*limit
         self.status = 0
 
@@ -313,6 +311,8 @@ class UserProduct(Base):
     """
     user_id = Column(Integer,ForeignKey("userlogin.id")) #关联用户ID
     product_key = Column(String(20),ForeignKey("product.key")) #关联产品ID
+    instance_name = Column(String(50)) #产品实例的名称
+    order_product_id = Column(Integer) #关联的订单对象ID
     image_id = Column(String(36))   #操作系统镜像编号
     server_id = Column(String(36))  #虚拟机实例的编号
     instance_ip = Column(String(15)) #NOVA分配的IP地址
@@ -324,7 +324,7 @@ class UserProduct(Base):
         TABLEARGS
     )
 
-    def __init__(self, user, product, image_id):
+    def __init__(self, user, orderproduct):
         """
         初始化用户虚拟机实例
         @user: 用户登陆对象
@@ -332,8 +332,10 @@ class UserProduct(Base):
         @image_id: 操作系统实例对象
         """
         self.user_id = user.id
-        self.product_key = product.key
-        self.image_id = image_id
+        self.order_product_id = orderproduct.id
+        self.instance_name = u"未命名主机"
+        self.product_key = orderproduct.product_key
+        self.image_id = ""
         self.status = 0
         self.disabled = False
 

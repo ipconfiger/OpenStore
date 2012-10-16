@@ -115,6 +115,57 @@ class Cards(object):
         g.db.commit()
         return order.id
 
+def create_oneitem(user, product_key, pay_type, pay_count, count):
+    dn = datetime.datetime.now()
+    product = g.db.query(Product).filter(Product.key==product_key).one()
+    favs = list(g.db.query(Favorable).filter(Favorable.product_key==product_key, Favorable.start<=dn, Favorable.end>=dn).all())
+    favorable=favs[0] if favs else None
+    base_fee = count*pay_count
+    fee = base_fee*product.yearly_price if pay_type else base_fee*product.monthly_price
+    if favs:
+        favor_fee = base_fee*favorable.yearly_price if pay_type else base_fee*favorable.monthly_price
+    else:
+        favor_fee = fee
+    order = Order(user, fee, favor_fee)
+    g.db.add(order)
+    g.db.flush()
+    for i in range(count):
+        if favorable:
+            orderproduct = OrderProduct(user, order, product, pay_type, pay_count, favor=favorable)
+        else:
+            orderproduct = OrderProduct(user, order, product, pay_type, pay_count)
+        g.db.add(orderproduct)
+    g.db.flush()
+    g.db.commit()
+    return order
+
+
+def finish_order(order):
+    from settings import NOVA
+    from user import serv
+    order.status = 2
+    useraccount = serv.get_user_account(order.user_id)
+    user = serv.get_user_login(order.user_id)
+    if not useraccount.tenant_id:
+        useraccount.tenant_id = NOVA.get_tenent()
+    orderproducts = g.db.query(OrderProduct).filter(OrderProduct.order_id==order.id).all()
+    for orderproduct in orderproducts:
+        userproduct = UserProduct(user, orderproduct)
+        g.db.add(userproduct)
+    g.db.flush()
+    g.db.commit()
+
+
+def get_unpay_order(user):
+    return g.db.query(Order).filter(Order.user_id==user.id,Order.status<2).all()
+
+
+def get_user_product(user):
+    return g.db.query(UserProduct).filter(UserProduct.user_id==user.id).all()
+
+def get_product(product_key):
+    return g.db.query(Product).filter(Product.key==product_key).one()
+
 
 def add_to_card(product_key, count, pay_type, pay_count):
     """
@@ -172,7 +223,6 @@ def card_items():
                 fee=carditem.fee,
                 favor_fee=carditem.favor_fee,
            ) for carditem in card_items]
-
 
 
 def init_order():

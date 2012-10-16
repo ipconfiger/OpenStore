@@ -1,42 +1,220 @@
 {% extends "mid_base.html" %}
+{% block header %}
+<script type="text/javascript">
+    function get_number(prefix, pkey){
+        num = parseInt($("#"+prefix+"_"+pkey).val());
+        if (!isNaN(num)){
+            return num;
+        }
+        return 0;
+    }
+    function set_number(prefix, pkey, v){
+        $("#"+prefix+"_"+pkey).val(v);
+    }
+
+    function get_all_numbers(pkey){
+        return {
+            count:get_number("num", pkey),
+            pay_type:get_number("pay_type", pkey),
+            pay_count:get_number("tm", pkey)
+        }
+    }
+
+    function inc_count(pkey){
+        var ns = get_all_numbers(pkey);
+        ns.count++;
+        set_card_count(pkey, ns);
+    }
+
+    function dec_count(pkey){
+        var ns = get_all_numbers(pkey);
+        ns.count--;
+        set_card_count(pkey, ns);
+    }
+
+    function inc_pay_count(pkey){
+        var ns = get_all_numbers(pkey);
+        ns.pay_count++;
+        set_card_count(pkey, ns);
+    }
+
+    function dec_pay_count(pkey){
+        var ns = get_all_numbers(pkey);
+        ns.pay_count--;
+        set_card_count(pkey, ns);
+    }
+
+    function change_type(pkey){
+        var ns = get_all_numbers(pkey);
+        set_card_count(pkey, ns);
+    }
+
+    function set_card_count(item_id, numbers){
+        var params = {
+            id:item_id,
+            c:numbers.count,
+            pt:numbers.pay_type,
+            pc:numbers.pay_count
+        };
+        $.ajax(
+            {
+                url:"{{ url_for("product.card") }}",
+                data:params,
+                success:function(rs){
+                    if(rs.r){
+                        refresh_cards(item_id, rs.info.fee,rs.info.favor_fee,numbers);
+                    }else{
+                        pop_alert("err", rs.info);
+                    }
+                },
+                dataType:'json',
+                type:"PUT"
+            }
+        );
+    }
+
+    function refresh_cards(pkey, total_fee, total_favor, numbers){
+        set_number("num", pkey, numbers.count);
+        set_number("tm", pkey,numbers.pay_count);
+        var tp = get_number("pay_type",pkey);
+        var single_year_price = get_number("yp", pkey);
+        var single_month_price = get_number("mp", pkey);
+        var single_f_year_price = get_number("fyp", pkey);
+        var single_f_month_price = get_number("fmp", pkey);
+        var fee = 0;
+        var favor_fee =0;
+        if(tp>0){
+            fee = single_year_price*numbers.count*numbers.pay_count;
+        }else{
+            fee = single_month_price*numbers.count*numbers.pay_count;
+        }
+        if(tp>0){
+            favor_fee = single_f_year_price*numbers.count*numbers.pay_count;
+        }else{
+            favor_fee = single_f_month_price*numbers.count*numbers.pay_count;
+        }
+        $("#fee_"+pkey).html(fee+"¥");
+        $("#favor_fee_"+pkey).html(favor_fee+"¥");
+        $("#total_fee").html("总价"+total_fee+"¥");
+        $("#total_favor").html("优惠价"+total_favor+"¥");
+    }
+
+    function delete_item(item_id){
+        $.ajax(
+                {
+                    url:"{{ url_for("product.card") }}?id="+item_id,
+                    data:{},
+                    dataType:"json",
+                    type:"DELETE",
+                    success:function(rs){
+                        if(rs.r){
+                            location.reload();
+                        }else{
+                            pop_alert("err", r.info);
+                        }
+                    }
+                }
+        );
+    }
+</script>
+{% endblock %}
 {% block mid %}
 <div class="page-header">
     <h1>购物车<small>预定主机列表</small></h1>
 </div>
-<div class="pull-right"><button class="btn btn-primary">提交订单</button></div>
+{% if card_items %}
+<div class="pull-right">
+    <form action="{{ url_for("product.create_order") }}" method="POST">
+    <button type="submit" class="btn btn-primary">提交订单</button>&nbsp;&nbsp;<a href="{{ url_for("product.clear_card") }}" class="btn btn-danger">清空</a>
+    </form>
+</div>
+<div class="pull-left">
+    <span id="total_fee" class="badge badge-info fee">总价{{ cards.total_fee }}¥</span>
+    ／
+    <span id="total_favor" class="badge badge-important fee">优惠价{{ cards.total_favor }}¥</span>
+</div>
 <table class="table">
     <thead>
         <tr>
             <td>主机名称</td>
-            <td>操作系统</td>
             <td>CPU</td>
             <td>内存</td>
             <td>存储</td>
+            <td></td>
+            <td><strong>租期</strong></td>
+            <td><strong>数量</strong></td>
+            <td>价格／优惠价格</td>
             <td>操作</td>
         </tr>
     </thead>
     <tbody>
+        {% for item in card_items %}
         <tr>
-            <td>经济A型</td>
-            <td>CentOS6.2</td>
-            <td>1核</td>
-            <td>512M</td>
-            <td>10G</td>
             <td>
-                <button class="btn btn-danger">去除</button>
+                {{ item.product.name }}
+                <input id="mp_{{ item.id }}" type="hidden" value="{{ item.product.monthly_price }}">
+                <input id="yp_{{ item.id }}" type="hidden" value="{{ item.product.yearly_price }}">
+                <input id="hf_{{ item.id }}" type="hidden" value="{{ item.product.has_favor }}">
+                <input id="fmp_{{ item.id }}" type="hidden" value="{{ item.product.favor_monthly_price }}">
+                <input id="fyp_{{ item.id }}" type="hidden" value="{{ item.product.favor_yearly_price }}">
+            </td>
+            <td>{{ item.product.cpu }}</td>
+            <td>{{ item.product.memory }}</td>
+            <td>{{ item.product.storage }}</td>
+            <td>
+                <div class="input-prepend input-append">
+                    <span class="add-on"><a href="javascript:void(0);" onclick="dec_pay_count('{{ item.id }}')">-</a></span>
+                    <input class="span1" id="tm_{{ item.id }}" size="4" type="text" value="{{ item.pay_count }}" readonly="true" >
+                    <span class="add-on"><a href="javascript:void(0);" onclick="inc_pay_count('{{ item.id }}')">+</a></span>
+                </div>
+            </td>
+            <td>
+                <select id="pay_type_{{ item.id }}"  class="span1" onchange="change_type('{{ item.id }}')">
+                    {% if  item.pay_type>0 %}
+                        <option value="1" selected="">年</option>
+                        <option value="0">月</option>
+                    {% else %}
+                        <option value="0" selected="">月</option>
+                        <option value="1">年</option>
+                    {% endif %}
+                </select>
+            </td>
+
+            <td>
+                <div class="input-prepend input-append">
+                    <span class="add-on"> <a href="javascript:void(0);" onclick="dec_count('{{ item.id }}')">-</a></span>
+                    <input class="span1" id="num_{{ item.id }}" size="4" type="text" value="{{ item.count }}" />
+                    <span class="add-on"> <a href="javascript:void(0);" onclick="inc_count('{{ item.id }}')">+</a></span>
+                </div>
+            </td>
+            <td>
+                <span id="fee_{{ item.id }}" class="badge badge-info fee">
+                    {{ item.fee }}¥
+                </span>
+                {% if item.fee>item.favor_fee %}
+                    ／
+                    <span id="favor_fee_{{ item.id }}" class="badge badge-important fee">
+                   {{ item.favor_fee }}¥
+                </span>
+                {% endif %}
+
+            </td>
+            <td>
+                <button class="btn btn-danger" onclick="delete_item('{{ item.id }}')">去除</button>
            </td>
         </tr>
-        <tr>
-            <td>经济B型</td>
-            <td>CentOS6.2</td>
-            <td>1核</td>
-            <td>512M</td>
-            <td>10G</td>
-            <td>
-                <button class="btn btn-danger">去除</button>
-            </td>
-        </tr>
+        {% endfor %}
     </tbody>
 </table>
-
+{% else %}
+    <div class="hero-unit">
+        <h1>购物车是空的</h1>
+        <p>&nbsp;</p>
+        <p>
+            <a href="{{ url_for("product.index") }}" class="btn btn-primary btn-large">
+                去挑选合适的主机吧
+            </a>
+        </p>
+    </div>
+{% endif %}
 {% endblock %}

@@ -9,21 +9,23 @@
         <tr>
             <td>生成时间</td>
             <td>订单号</td>
-            <td>折扣金额</td>
             <td>合计金额</td>
+            <td>优惠合计金额</td>
             <td>状态</td>
-            <td>操作</td>
+            <td></td>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>2012年10月1日22时22分</td>
-            <td><strong>AP002313</strong></td>
-            <td>3000$</td>
-            <td>3000$</td>
-            <td>正在处理</td>
-            <td><a href="order/AP002313" class="btn">查看订单详情</a>&nbsp;&nbsp;<button class="btn btn-danger">取消订单</button></td>
-        </tr>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.create_time }}</td>
+                <td><strong>{{ order.serial_number }}</strong></td>
+                <td>{{ order.total_fee }} ¥</td>
+                <td>{{ order.favor_fee }} ¥</td>
+                <td>{{ order.status | order_status }}</td>
+                <td><a href="{{ url_for("product.order_Detail",order_id=order.id) }}" class="btn">查看订单详情</a></td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
     <blockquote>
@@ -43,17 +45,25 @@
         </tr>
         </thead>
         <tbody>
+        {% for product in products %}
         <tr>
-            <td>经济A型</td>
-            <td>CentOS6.2</td>
-            <td>1核</td>
-            <td>512M</td>
-            <td>10G</td>
+            <td>{{ product.instance_name }}</td>
+            <td>
+                {% if product.image_id %}
+                    {{ product.image_id }}
+                {% else %}
+                    未安装
+                {% endif %}
+            </td>
+            <td>{{ product.product.cpu }}核</td>
+            <td>{{ product.product.memory|mems }}</td>
+            <td>{{ product.product.storage }}G</td>
             <td>准备创建</td>
             <td>
                 <button class="btn-primary" type="button">创建实例</button>
             </td>
         </tr>
+        {% endfor %}
         <tr>
             <td>经济B型</td>
             <td>CentOS6.2</td>

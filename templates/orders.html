@@ -3,26 +3,33 @@
     <div class="page-header">
         <h1>订单列表<small></small></h1>
     </div>
+    {% if total %}
     <table class="table">
         <thead>
-            <tr>
-                <td>生成时间</td>
-                <td>订单号</td>
-                <td>折扣金额</td>
-                <td>合计金额</td>
-                <td>状态</td>
-                <td>操作</td>
-            </tr>
+        <tr>
+            <td>生成时间</td>
+            <td>订单号</td>
+            <td>合计金额</td>
+            <td>优惠合计金额</td>
+            <td>状态</td>
+            <td></td>
+        </tr>
         </thead>
         <tbody>
+            {% for order in orders %}
             <tr>
-                <td>2012年10月1日22时22分</td>
-                <td><strong>AP002313</strong></td>
-                <td>3000$</td>
-                <td>3000$</td>
-                <td>正在处理</td>
-                <td><a href="order/AP002313" class="btn">查看订单详情</a>&nbsp;&nbsp;<button class="btn btn-danger">取消订单</button></td>
+                <td>{{ order.create_time }}</td>
+                <td><strong>{{ order.serial_number }}</strong></td>
+                <td>{{ order.total_fee }} ¥</td>
+                <td>{{ order.favor_fee }} ¥</td>
+                <td>{{ order.status | order_status }}</td>
+                <td><a href="{{ url_for("product.order_Detail",order_id=order.id) }}" class="btn">查看订单详情</a></td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
+    {% include "pager.html" %}
+    {% else %}
+        您还没有订单
+    {% endif %}
 {% endblock %}

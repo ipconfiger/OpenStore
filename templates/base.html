@@ -41,7 +41,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ url_for("user.info") }}">我的帐户</a></li>
-                            <li><a href="#">我的订单</a></li>
+                            <li><a href="{{ url_for("index.dashboard") }}">我的控制台</a></li>
+                            <li><a href="{{ url_for("product.order_list") }}">我的订单</a></li>
                             <li><a href="{{ url_for("user.logout") }}">退出帐户</a></li>
                         </ul>
                     </li>

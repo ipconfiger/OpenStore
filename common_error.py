@@ -6,3 +6,6 @@ class DuplicateException(Exception):
 
 class ValidateException(Exception):
     pass
+
+class EmptyException(Exception):
+    pass

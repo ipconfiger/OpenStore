@@ -1,148 +1,157 @@
 {% extends "base_cal2.html" %}
+{% block header %}
+<script type="text/javascript">
+function get_number(prefix, pkey){
+    num = parseInt($("#"+prefix+"_"+pkey).val());
+    if (!isNaN(num)){
+        return num;
+    }
+    return 0;
+}
+function set_number(prefix, pkey, v){
+    $("#"+prefix+"_"+pkey).val(v);
+}
+function increase(prefix, pkey){
+    var val = parseInt(get_number(prefix, pkey));
+    if (!isNaN(val)){
+        set_number(prefix, pkey, ++val);
+    }
+    recount(pkey);
+}
+function decrease(prefix, pkey){
+    var val = parseInt(get_number(prefix, pkey));
+    if (!isNaN(val)){
+         if (val>1){
+             set_number(prefix, pkey, --val);
+         }
+    }
+    recount(pkey);
+}
+
+function recount(pkey){
+    var tp = parseInt($("#pay_type_"+pkey).val());
+    var ct = get_number("tm", pkey);
+    var num = get_number('num', pkey)
+    set_number("ljg_pay_type",pkey,tp);
+    set_number("ljg_pay_count",pkey,ct);
+    set_number("ljg_count",pkey,num);
+
+    var single_year_price = get_number("yp", pkey);
+    var single_month_price = get_number("mp", pkey);
+    var single_f_year_price = get_number("fyp", pkey);
+    var single_f_month_price = get_number("fmp", pkey);
+    var fee = 0;
+    var favor_fee =0;
+    if(tp>0){
+        fee = single_year_price*ct*num;
+    }else{
+        fee = single_month_price*ct*num;
+    }
+    if(tp>0){
+        favor_fee = single_f_year_price*ct*num;
+    }else{
+        favor_fee = single_f_month_price*ct*num;
+    }
+    $("#fee_"+pkey).html(fee+"¥");
+    $("#favor_fee_"+pkey).html(favor_fee+"¥");
+}
+
+function add_to_card(pkey){
+    var params = {
+                    p:pkey,
+                    c:get_number('num', pkey),
+                    tl:get_number('tm', pkey),
+                    t:$("#pay_type_"+pkey).val()
+    };
+    $.post("{{ url_for("product.card") }}",params,function(rs){
+        if (rs.r){
+            pop_alert("info", "已经添加到<a href='{{ url_for("product.card") }}'>购物车</a>");
+        }else{
+            pop_alert("err", rs.info);
+        }
+    },'json');
+}
+</script>
+{% endblock %}
 {% block left %}
 {% endblock %}
 {% block main %}
-    <ul class="thumbnails">
-        <li class="span3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>经济A型</h3>
-                    <p>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td><b>OS</b></td>
-                            <td>CentOS6.2</td>
-                        </tr>
-                        <tr>
-                            <td><b>CPU</b></td>
-                            <td>1核</td>
-                        </tr>
-                        <tr>
-                            <td><b>内存</b></td>
-                            <td>512M</td>
-                        </tr>
-                        <tr>
-                            <td><b>存储</b></td>
-                            <td>10G</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </p>
-                    <p>
-                        20/月&nbsp;&nbsp;50/季&nbsp;&nbsp;180/年
-                    </p>
-                    <p>
-                        <button class="btn btn-primary">添加到购物车</button>
-                    </p>
+    <div class="page-header">
+        <h1>云主机列表 》》<small><a href="{{ url_for("product.card") }}">查看购物车</a> </small></h1>
+    </div>
+    <table class="table" xmlns="http://www.w3.org/1999/html">
+        <thead>
+        <tr>
+            <td><strong>主机名称</strong></td>
+            <td><strong>CPU</strong></td>
+            <td><strong>内存</strong></td>
+            <td><strong>存储</strong></td>
+            <td></td>
+            <td><strong>租期</strong></td>
+            <td><strong>数量</strong></td>
+            <td>价格／优惠价格</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+        <tr>
+            <td>
+                <strong> {{ product.name }} </strong>
+                <input id="mp_{{ product.key }}" type="hidden" value="{{ product.monthly_price }}">
+                <input id="yp_{{ product.key }}" type="hidden" value="{{ product.yearly_price }}">
+                <input id="hf_{{ product.key }}" type="hidden" value="{{ product.has_favor }}">
+                <input id="fmp_{{ product.key }}" type="hidden" value="{{ product.favor_monthly_price }}">
+                <input id="fyp_{{ product.key }}" type="hidden" value="{{ product.favor_yearly_price }}">
+            </td>
+            <td>{{ product.cpu }}</td>
+            <td>{{ product.memory }}</td>
+            <td>{{ product.storage }}</td>
+            <td>
+                <div class="input-prepend input-append">
+                    <span class="add-on"><a href="javascript:void(0);" onclick="decrease('tm','{{ product.key }}')">-</a></span>
+                    <input class="span1" id="tm_{{ product.key }}" size="4" type="text" value="1" readonly="true" >
+                    <span class="add-on"><a href="javascript:void(0);" onclick="increase('tm','{{ product.key }}')">+</a></span>
                 </div>
-            </div>
-        </li>
-        <li class="span3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>经济A型</h3>
-                    <p>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td><b>OS</b></td>
-                            <td>CentOS6.2</td>
-                        </tr>
-                        <tr>
-                            <td><b>CPU</b></td>
-                            <td>1核</td>
-                        </tr>
-                        <tr>
-                            <td><b>内存</b></td>
-                            <td>512M</td>
-                        </tr>
-                        <tr>
-                            <td><b>存储</b></td>
-                            <td>10G</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </p>
-                    <p>
-                        20/月&nbsp;&nbsp;50/季&nbsp;&nbsp;180/年
-                    </p>
-                    <p>
-                        <button class="btn btn-primary">添加到购物车</button>
-                    </p>
+            </td>
+            <td>
+                <select id="pay_type_{{ product.key }}" onchange="recount('{{ product.key }}')"  class="span1">
+                    <option value="0">月</option>
+                    <option value="1">年</option>
+                </select>
+            </td>
+            <td>
+                <div class="input-prepend input-append">
+                    <span class="add-on"><a href="javascript:void(0);" onclick="decrease('num','{{ product.key }}')">-</a></span>
+                    <input class="span1" id="num_{{ product.key }}" size="4" type="text" value="1" readonly="true" />
+                    <span class="add-on"><a href="javascript:void(0);" onclick="increase('num','{{ product.key }}')">+</a></span>
                 </div>
-            </div>
-        </li>
-        <li class="span3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>经济A型</h3>
-                    <p>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td><b>OS</b></td>
-                            <td>CentOS6.2</td>
-                        </tr>
-                        <tr>
-                            <td><b>CPU</b></td>
-                            <td>1核</td>
-                        </tr>
-                        <tr>
-                            <td><b>内存</b></td>
-                            <td>512M</td>
-                        </tr>
-                        <tr>
-                            <td><b>存储</b></td>
-                            <td>10G</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </p>
-                    <p>
-                        20/月&nbsp;&nbsp;50/季&nbsp;&nbsp;180/年
-                    </p>
-                    <p>
-                        <button class="btn btn-primary">添加到购物车</button>
-                    </p>
-                </div>
-            </div>
-        </li>
-        <li class="span3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>经济A型</h3>
-                    <p>
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td><b>OS</b></td>
-                            <td>CentOS6.2</td>
-                        </tr>
-                        <tr>
-                            <td><b>CPU</b></td>
-                            <td>1核</td>
-                        </tr>
-                        <tr>
-                            <td><b>内存</b></td>
-                            <td>512M</td>
-                        </tr>
-                        <tr>
-                            <td><b>存储</b></td>
-                            <td>10G</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    </p>
-                    <p>
-                        20/月&nbsp;&nbsp;50/季&nbsp;&nbsp;180/年
-                    </p>
-                    <p>
-                        <button class="btn btn-primary">添加到购物车</button>
-                    </p>
-                </div>
-            </div>
-        </li>
-    </ul>
+            </td>
+            <td>
+                <span id="fee_{{ product.key }}" class="badge badge-info fee">
+                    {{ product.monthly_price }}¥
+                </span>
+                {% if product.has_favor %}
+                    ／
+                <span id="favor_fee_{{ product.key }}" class="badge badge-important fee">
+                   {{ product.favor_monthly_price }}¥
+                </span>
+                {% endif %}
+
+            </td>
+            <td>
+                <form action="{{ url_for("product.create_one_order") }}" method="POST">
+                <button type="button" class="btn btn-danger" onclick="add_to_card('{{ product.key }}')">加入购物车</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="key" type="hidden" value="{{ product.key }}" />
+                <input id="ljg_pay_type_{{ product.key }}" name="pay_type" type="hidden" value="0"/>
+                <input id="ljg_pay_count_{{ product.key }}" name="pay_count" type="hidden" value="1"/>
+                <input id="ljg_count_{{ product.key }}" name="count" type="hidden" value="1"/>
+                <button type="submit" class="btn btn-primary">立即购买</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

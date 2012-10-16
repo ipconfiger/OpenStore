@@ -1,9 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "mid_base.html" %}
+{% block mid %}
+    <div class="hero-unit">
+        <h1>订单创建成功</h1>
+        <p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <td>生成时间</td>
+                    <td>订单号</td>
+                    <td>合计金额</td>
+                    <td>优惠合计金额</td>
+                    <td>状态</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ order.create_time }}</td>
+                    <td><strong>{{ order.serial_number }}</strong></td>
+                    <td>{{ order.total_fee }} ¥</td>
+                    <td>{{ order.favor_fee }} ¥</td>
+                    <td>正在处理</td>
+                </tr>
+                </tbody>
+            </table>
+        </p>
+        <p>
+            <a href="{{ url_for("product.order_Detail",order_id=order_id) }}" class="btn btn-primary btn-large">
+                查看订单明细
+            </a>
+        </p>
+    </div>
+{% endblock %}

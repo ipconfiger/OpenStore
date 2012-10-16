@@ -5,6 +5,7 @@ import random
 import hmac
 from pyDes import *
 import sys, traceback
+import urllib
 from common_error import ValidateException
 
 
@@ -78,11 +79,15 @@ def login_required(f):
     from flask import g, redirect, url_for
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        print g.current_login_id
         if not g.current_login_id:
-            return redirect("/")
+            return redirect(url_for("user.login"))
         return f(*args, **kwargs)
     return decorated_function
+
+def json_response(result,data):
+    from json import dumps
+    return dumps(dict(r=result,info=data))
+
 
 def woops(message, next="/"):
     from flask import redirect, url_for, flash
@@ -123,4 +128,30 @@ def print_debug(ex):
         detail += fm.print_local()
         detail += u"\n-------------------------------------------------------\n"
     return detail
+
+def pages(item_count, page_size):
+    from flask import request
+    base_url = request.path
+    page_id = int(request.args.get("p","1"))
+    def make_url(base,pid):
+        base=tob(base)
+        if not pid:
+            return ""
+        url_slice=base.split('?')
+        if len(url_slice)<2:
+            return base+"?p=%s"%pid
+        else:
+            params=dict([(lambda i:tuple(i) if len(i)<3 else (i[0],"=".join(i[1:])))(item.split("=")) for item in url_slice[1].split('&')])
+            params["p"]=pid
+            return "%s?%s"%(url_slice[0],urllib.urlencode(params))
+
+    page_count=item_count/page_size+1 if item_count%page_size else item_count/page_size
+    if page_count<10:
+        return [(i+1,make_url(base_url,i+1)) for i in range(page_count)]
+    else:
+        if page_id<5:
+            return [(p,make_url(base_url,p)) for p in [1,2,3,4,5,0,page_count]]
+        if page_id>(page_count-4):
+            return [(p,make_url(base_url,p)) for p in [1,0,page_count-4,page_count-3,page_count-2,page_count-1,page_count]]
+        return [(p,make_url(base_url,p)) for p in [1,0,page_id-2,page_id-1,page_id,page_id+1,page_id+2,0,page_count]]
 

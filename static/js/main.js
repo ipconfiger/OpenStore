@@ -7,6 +7,8 @@
  */
 
 function pop_alert(type,message){
+    $("#alert_bar").html("");
+    $("#alert_bar").show('slow');
     if (type=="info"){
         $("#alert_bar").html("<div class=\"alert\">"+message+"<a href=\"#\" class=\"close\" data-dismiss=\"alert\">×</a></div>");
     }
@@ -14,4 +16,8 @@ function pop_alert(type,message){
         $("#alert_bar").html("<div class=\"alert alert-error\">"+message+"<a href=\"#\" class=\"close\" data-dismiss=\"alert\">×</a></div>");
     }
     $(".alert").alert();
+    setTimeout(function(){
+        $("#alert_bar").hide("slow");
+        $("#alert_bar").html("");
+    },5000);
 }

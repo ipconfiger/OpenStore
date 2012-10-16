@@ -1,4 +1,6 @@
 # encoding: utf-8
+import nova
+
 DEBUG = True
 
 SERVER_ID = "W1"
@@ -22,3 +24,5 @@ MAIL_USERNAME = 'liming0831'
 MAIL_PASSWORD = '1qasw2'
 
 DEFAULT_MAIL_SENDER = 'liming0831@163.com'
+
+NOVA = nova.init_nova("mock")
