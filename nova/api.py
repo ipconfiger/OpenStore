@@ -349,6 +349,10 @@ class Security(Nova):
         }
         return self.nova_process(path,data,requests.post)
 
+    def get_key(self,key_name):
+        path = "/os-keypairs/%s"%key_name
+        return self.nova_process(path, None, requests.get)
+
     def rm_key(self, key_name):
         path = "/os-keypairs/%s"%key_name
         return self.nova_process(path, None, requests.delete)
