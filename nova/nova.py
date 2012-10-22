@@ -11,6 +11,11 @@ def all_tenant():
     tenant = api.Tennat(token)
     return tenant.tenant_list()
 
+def all_key(tenant_id):
+    token = api.Token(*ADMIN_TENANT)
+    tenant = api.Tennat(token,tenant_id=tenant_id)
+    return tenant.list_key()
+
 def gen_key(tenant_id):
     name = str(int(time.time()))
     token = api.Token(*ADMIN_TENANT)
