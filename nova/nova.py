@@ -5,6 +5,12 @@ import time
 
 ADMIN_TENANT = ('admin','aipuip662012','adminTenant')
 
+
+def all_tenant():
+    token = api.Token(*ADMIN_TENANT)
+    tenant = api.Tennat(token)
+    return tenant.tenant_list()
+
 def gen_key(tenant_id):
     name = str(int(time.time()))
     token = api.Token(*ADMIN_TENANT)
