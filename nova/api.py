@@ -276,7 +276,7 @@ class Tennat(KeyStornRead,KeyStornWrite,Nova):
 
     def list_key(self):
         path = "/v2.0/%s/os-keypairs"%self.tenant_id
-        return self.nova_process(path, None, requests.get)
+        return self.kr_process(path, None, requests.get)
 
     def gen_key(self, key_name):
         path = "/v2.0/%s/os-keypairs"%self.tenant_id
