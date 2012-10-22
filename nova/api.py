@@ -343,7 +343,11 @@ class Security(Nova):
 
     def gen_key(self, key_name):
         path = "/os-keypairs"
-        return self.nova_process(path,{"name":key_name},requests.post)
+        data = {"keypair": {
+            "name": key_name,
+            }
+        }
+        return self.nova_process(path,data,requests.post)
 
     def rm_key(self, key_name):
         path = "/os-keypairs/%s"%key_name
