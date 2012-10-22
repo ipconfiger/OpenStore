@@ -6,7 +6,7 @@ from json import dumps
 from flask import Blueprint, render_template, abort, request, g, redirect, url_for, session
 from jinja2 import TemplateNotFound
 from forms import *
-from models import Product, Favorable, Order, OrderProduct
+from models import Product, Favorable, Order, OrderProduct, UserProduct
 from user.serv import get_user_login
 import logging as log
 
@@ -186,6 +186,28 @@ def manage_orders():
     orders = q[start:start+page_size]
     pids = pages(total,page_size)
     return render_template("", **locals())
+
+@product.route("/server",methods=["POST"])
+@login_required
+def create_server():
+    user_product_id = int(request.form.get("up_id"))
+    server_name = request.form.get("name")
+    image_id = request.form.get("image_id")
+    try:
+        serv.create_server(user_product_id, server_name, image_id)
+        return json_response(True,{})
+    except Exception, ex:
+        log.error(print_debug(ex))
+        g.db.rollback()
+        return json_response(False,u"未知异常")
+
+@product.route("/server/<server_id>",methods=["GET"])
+@login_required
+def server_status(server_id):
+    from user.serv import get_user_account
+    user_id = g.current_user_id
+    return json_response(True,serv.get_status(user_id, server_id))
+
 
 
 @product.route("/manage",methods=['GET','POST'])

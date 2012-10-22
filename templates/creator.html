@@ -1,0 +1,45 @@
+{% extends "mid_base.html" %}
+{% block header %}
+    <script type="text/javascript">
+    function create(btn){
+        $.post("/server",{},function(d){
+
+        });
+    }
+    function get_status(){
+
+    }
+    $(function(){
+        $("#create_btn").click(function(){
+           create($(this));
+        });
+    });
+    </script>
+{% endblock %}
+{% block mid %}
+    <div id="process_show">
+    </div>
+    <div class="page-header">
+        <h1>创建虚拟机实例<small></small></h1>
+    </div>
+    <form class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="instance_name">实例名称</label>
+            <div class="controls">
+                <input name="name" type="text" id="instance_name" placeholder="实例名称">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="images">操作系统</label>
+            <div class="controls">
+                <select id="images" name="image_id">
+                    <option value="">请选择操作系统</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="button" id="create_btn" class="btn btn-primary">开始创建虚拟机实例</button>
+            <a type="button" class="btn" href="">Cancel</a>
+        </div>
+    </form>
+{% endblock %}

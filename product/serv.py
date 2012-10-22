@@ -155,6 +155,27 @@ def finish_order(order):
     g.db.flush()
     g.db.commit()
 
+def create_server(user_product_id, server_name, image_id):
+    from settings import NOVA
+    from user.serv import get_user_account
+    userproduct = g.db.query(UserProduct).get(user_product_id)
+    useraccount = get_user_account(userproduct.user_id)
+    product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
+    rs, server_id = NOVA.create_server(useraccount.tenant_id, product.flover_id, image_id)
+    if rs:
+        userproduct.image_id = image_id
+        userproduct.instance_name = server_name
+        userproduct.server_id = server_id
+    g.db.flush()
+    g.db.commit()
+
+def get_status(user_id, server_id):
+    from settings import NOVA
+    from user.serv import  get_user_account
+    useraccount = get_user_account(user_id)
+    return NOVA.server_status(useraccount.tenant_id, server_id)
+
+
 
 def get_unpay_order(user):
     return g.db.query(Order).filter(Order.user_id==user.id,Order.status<2).all()
