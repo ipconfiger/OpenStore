@@ -178,7 +178,7 @@ class User(KeyStornRead,KeyStornWrite):
         return self.kr_process("/v2.0/users",None,requests.get)
 
 
-class Tennat(KeyStornRead,KeyStornWrite):
+class Tennat(KeyStornRead,KeyStornWrite,Nova):
     """
     租户操作API
     """
@@ -276,15 +276,15 @@ class Tennat(KeyStornRead,KeyStornWrite):
 
     def list_key(self):
         path = "/v2.0/%s/os-keypairs"%self.tenant_id
-        return self.kr_process(path, None, requests.get)
+        return self.nova_process(path, None, requests.get)
 
     def gen_key(self, key_name):
         path = "/v2.0/%s/os-keypairs"%self.tenant_id
-        return self.kw_process(path,{"name":key_name},requests.post)
+        return self.nova_process(path,{"name":key_name},requests.post)
 
     def rm_key(self, key_name):
         path = "/v2.0/%s/os-keypairs/%s"%(self.tenant_id,key_name)
-        return self.kw_process(path, None, requests.delete())
+        return self.nova_process(path, None, requests.delete())
 
 
 class Security(Nova):
