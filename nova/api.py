@@ -9,6 +9,7 @@ import logging as log
 KEYSTORN_READ = "http://10.1.1.4:5000"
 KETSTORN_WRITE = "http://10.1.1.4:35357"
 
+
 COMMON_HEADER = {"Content-type":"application/json"}
 PERSONAL_PATH = "/etc/banner.txt"
 
@@ -67,6 +68,7 @@ class Nova(object):
     def nova_process(self, path, body, method):
         url = self.token['nova'] + path
         return fetch(url, body, header(self.token), method)
+
 
 class KeyStornRead(object):
     """
@@ -178,7 +180,7 @@ class User(KeyStornRead,KeyStornWrite):
         return self.kr_process("/v2.0/users",None,requests.get)
 
 
-class Tennat(KeyStornRead,KeyStornWrite,Nova):
+class Tenant(KeyStornRead,KeyStornWrite):
     """
     租户操作API
     """
@@ -274,21 +276,10 @@ class Tennat(KeyStornRead,KeyStornWrite,Nova):
         """
         return self.kr_process("/v2.0/tenants",None,requests.get)
 
-    def list_key(self):
-        path = "/v2.0/%s/os-keypairs"%self.tenant_id
-        return self.kr_process(path, None, requests.get)
-
-    def gen_key(self, key_name):
-        path = "/v2.0/%s/os-keypairs"%self.tenant_id
-        return self.nova_process(path,{"name":key_name},requests.post)
-
-    def rm_key(self, key_name):
-        path = "/v2.0/%s/os-keypairs/%s"%(self.tenant_id,key_name)
-        return self.nova_process(path, None, requests.delete())
 
 
 class Security(Nova):
-    def __init__(self, token, security_id):
+    def __init__(self, token, security_id=None):
         self.security_id = security_id
         self.token = token
 
@@ -345,6 +336,19 @@ class Security(Nova):
     def list_rule(self,rule_id):
         path="/os-security-group-rules/%s"%rule_id
         return self.nova_process(path,None,requests.post)
+
+    def list_key(self):
+        path = "/os-keypairs"
+        return self.nova_process(path, None, requests.get)
+
+    def gen_key(self, key_name):
+        path = "/os-keypairs"
+        return self.nova_process(path,{"name":key_name},requests.post)
+
+    def rm_key(self, key_name):
+        path = "/os-keypairs/%s"%key_name
+        return self.nova_process(path, None, requests.delete)
+
 
 
 class Platform(Nova):

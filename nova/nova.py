@@ -8,18 +8,18 @@ ADMIN_TENANT = ('admin','aipuip662012','adminTenant')
 
 def all_tenant():
     token = api.Token(*ADMIN_TENANT)
-    tenant = api.Tennat(token)
+    tenant = api.Tenant(token)
     return tenant.tenant_list()
 
-def all_key(tenant_id):
+def all_key():
     token = api.Token(*ADMIN_TENANT)
-    tenant = api.Tennat(token,tenant_id=tenant_id)
-    return tenant.list_key()
+    sec = api.Security(token)
+    return sec.list_key()
 
-def gen_key(tenant_id):
+def gen_key():
     name = str(int(time.time()))
     token = api.Token(*ADMIN_TENANT)
-    tenant = api.Tennat(token,tenant_id=tenant_id)
-    return tenant.gen_key(name)
+    sec = api.Security(token)
+    return sec.gen_key(name)
 
 
