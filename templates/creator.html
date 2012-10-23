@@ -23,7 +23,6 @@
                     secure:$("#secury").val()
                };
         $.post("{{ url_for("product.create_server") }}",params,function(d){
-            alert(d.r);
             if (d.r){
                 $("#status_bar").html("<img src='/static/img/loading.gif'/>正在创建虚拟机......")
                 get_status();
@@ -41,7 +40,11 @@
                 pop_alert("info","主机创建成功，3秒后返回我的控制台");
                 setTimeout(function(){ Geolocation.href = '{{ url_for("index.dashboard") }}'; },3000);
             }else{
-                setTimeout(function(){ get_status(); },5000);
+                if (d.info!="ERROR"){
+                    setTimeout(function(){ get_status(); },5000);
+                }else{
+                    pop_alert('err',"创建失败，请联系客服工程师协助处理");
+                }
             }
         },type="json");
 
