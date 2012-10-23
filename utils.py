@@ -1,4 +1,5 @@
 # encoding: utf-8
+import os
 import settings
 import time
 import random
@@ -7,7 +8,6 @@ from pyDes import *
 import sys, traceback
 import urllib
 from common_error import ValidateException
-
 
 pad = lambda s, BS: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
 unpad = lambda s: s[0:-ord(s[-1])]
@@ -46,7 +46,8 @@ def read_random(length):
 def generate_code_image(size, length):
     import random
     from PIL import Image, ImageDraw, ImageFilter, ImageFont
-    font = ImageFont.truetype("Arial.ttf", 18)
+    font_path = os.path.abspath(os.path.join(os.getcwd(),"code.ttf"))
+    font = ImageFont.truetype(font_path, 18)
     words = " ".join(read_random(length))
     w, h = size
     font_w, font_h = font.getsize(words)
