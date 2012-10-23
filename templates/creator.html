@@ -1,7 +1,11 @@
 {% extends "mid_base.html" %}
 {% block header %}
     <script type="text/javascript">
+    var lock=false;
     function create(btn){
+        if(lock){
+            return;
+        }
         if($("#instance_name").val()==""){
             pop_alert('err',"请填写实例名称");
             return;
@@ -10,6 +14,8 @@
             pop_alert('err',"请选择一个操作系统");
             return ;
         }
+        lock=true;
+        $(btn).addClass("disabled");
         var params = {
                     up_id:"{{ user_product_id }}",
                     name:$("#instance_name").val(),
@@ -21,6 +27,7 @@
                 $("#status_bar").html("<img src='/static/img/loading.gif'/>正在创建虚拟机......")
             }
             else{
+                lock=false;
                 pop_alert('err',"创建失败，请联系客服工程师协助处理");
             }
         });
@@ -39,7 +46,6 @@
     }
     $(function(){
         $("#create_btn").click(function(){
-            $(this).addClass("disabled");
             create($(this));
         });
     });
