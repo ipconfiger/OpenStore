@@ -9,7 +9,7 @@ from index import index
 from user.views import user
 from user.serv import get_user
 from product.views import product
-from sqlalchemy import create_engine, MetaData
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from flask_mail import Mail
 

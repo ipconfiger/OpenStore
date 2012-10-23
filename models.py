@@ -137,6 +137,21 @@ class UserAccount(Base):
         self.last_modify = datetime.datetime.now()
 
 
+class UserTenant(Base):
+    user_id = Column(Integer)   #关联用户
+    tenant_id = Column(String(32))        #租户ID
+    tenant_name = Column(String(50))      #租户名称
+    oper_password = Column(String(100))   #后台操作密码
+    keypair = Column(String(2000))        #密钥对缓存
+    __table_args__ = (
+        UniqueConstraint(user_id,),
+        TABLEARGS
+    )
+
+    def __init__(self, user):
+        self.user_id = user.id
+
+
 class LookKey(Base):
     key = Column(String(32))
     user_id = Column(Integer)
@@ -360,6 +375,22 @@ class SysImage(Base):
         """
         self.image_key = key
         self.disabled = False
+
+class Tenant(Base):
+    id = Column(String(32),primary_key=True)
+    name = Column(String(50))
+    admin_user_id =Column(String(32))
+    used = Column(Boolean)
+    __table_args__ = TABLEARGS
+    def __init__(self, id, name, user_id):
+        """
+        初始化操作系统镜像
+        @key: 镜像在系统内的编号
+        """
+        self.id = id
+        self.name = name
+        self.admin_user_id = user_id
+        self.used = False
 
 
 class Manager(Base):

@@ -25,4 +25,6 @@ MAIL_PASSWORD = '1qasw2'
 
 DEFAULT_MAIL_SENDER = 'liming0831@163.com'
 
+NOVA_ADMIN = ('admin','aipuip662012','adminTenant')
+
 NOVA = nova.init_nova("mock")
