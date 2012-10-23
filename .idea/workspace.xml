@@ -48,7 +48,7 @@
       <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="99" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.68167704">
+            <state line="76" column="113" selection-start="2599" selection-end="2599" vertical-scroll-proportion="0.6957211">
               <folding />
             </state>
           </provider>
@@ -671,7 +671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="99" selection-start="2585" selection-end="2585" vertical-scroll-proportion="0.68167704">
+        <state line="76" column="113" selection-start="2599" selection-end="2599" vertical-scroll-proportion="0.6957211">
           <folding />
         </state>
       </provider>
