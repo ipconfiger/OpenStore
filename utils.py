@@ -48,7 +48,7 @@ def generate_code_image(size, length):
     from PIL import Image, ImageDraw, ImageFilter, ImageFont
     font_path = os.path.abspath(os.path.join(os.getcwd(),"code.ttf"))
     font = ImageFont.truetype(font_path, 18)
-    words = " ".join(read_random(length))
+    words = "".join(read_random(length))
     w, h = size
     font_w, font_h = font.getsize(words)
     img = Image.new('RGB',size,(255,255,255))
@@ -57,7 +57,7 @@ def generate_code_image(size, length):
     params = [1-float(random.randint(1,2))/100,0,0,0,1-float(random.randint(1,10))/100,float(random.randint(1,2))/500,0.001,float(random.randint(1, 2)) / 500]
     img = img.transform(size, Image.PERSPECTIVE, params)
     img = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
-    return img
+    return img, words
 
 
 def encrypt_des(content, key):

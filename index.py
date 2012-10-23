@@ -1,14 +1,25 @@
 # encoding: utf-8
 
-from flask import Blueprint, render_template, abort, flash, get_flashed_messages, request, g
+from flask import Blueprint, render_template, abort, flash, get_flashed_messages, request, g, session, send_file
 from jinja2 import TemplateNotFound
-from utils import login_required
+from utils import login_required, generate_code_image, read_random
+from tempfile import TemporaryFile
 
 index = Blueprint('index', __name__,template_folder='templates')
 
 @index.route('/')
 def index_():
     return render_template("index.html")
+
+@index.route('/code')
+def reg_code():
+    img, code =generate_code_image((300,80),5)
+    session["code"] = code
+    tp = TemporaryFile()
+    img.save(tp,format="png")
+    tp.seek(0)
+    return send_file(tp,mimetype='image/png')
+
 
 @index.route('/dashboard')
 @login_required
