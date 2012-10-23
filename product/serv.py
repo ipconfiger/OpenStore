@@ -6,7 +6,7 @@ import logging as log
 from uuid import uuid4
 from flask import g, url_for, session
 from cPickle import loads, dumps
-from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable
+from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant
 from common_error import DuplicateException, EmptyException
 
 
@@ -147,7 +147,15 @@ def finish_order(order):
     useraccount = serv.get_user_account(order.user_id)
     user = serv.get_user_login(order.user_id)
     if not useraccount.tenant_id:
-        useraccount.tenant_id = nova.api().get_tenent()
+        tenant = nova.api().get_tenent()
+        useraccount.tenant_id = tenant['id']
+        usertenant = UserTenant(user)
+        usertenant.tenant_id = tenant['id']
+        usertenant.tenant_name = tenant['name']
+        usertenant.admin_user_id = tenant['user_id']
+        key_pair = nova.api().gen_key()
+        usertenant.keypair = key_pair
+        g.db.add(usertenant)
     orderproducts = g.db.query(OrderProduct).filter(OrderProduct.order_id==order.id).all()
     for orderproduct in orderproducts:
         userproduct = UserProduct(user, orderproduct)
@@ -155,7 +163,7 @@ def finish_order(order):
     g.db.flush()
     g.db.commit()
 
-def create_server(user_product_id, server_name, image_id):
+def create_server(user_product_id, server_name, image_id, ):
     import nova
     from user.serv import get_user_account
     userproduct = g.db.query(UserProduct).get(user_product_id)

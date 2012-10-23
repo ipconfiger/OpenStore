@@ -3,6 +3,8 @@ __author__ = 'alex'
 import api
 import time
 import settings
+from models import Tenant
+from flask import g
 
 def auth():
     return api.Token(*settings.NOVA_ADMIN)
@@ -46,5 +48,9 @@ def gen_key():
     return sec.gen_key(name)
 
 def get_tenent():
-    return ""
+    tenant = g.db.query(Tenant).filter(Tenant.used==False).first()
+    tenant.used = True
+    g.db.flush()
+    g.db.commit()
+    return dict(id=tenant.id,name=tenant.name,user_id=tenant.admin_user_id)
 

@@ -141,6 +141,7 @@ class UserTenant(Base):
     user_id = Column(Integer)   #关联用户
     tenant_id = Column(String(32))        #租户ID
     tenant_name = Column(String(50))      #租户名称
+    admin_user_id = Column(String(32))
     oper_password = Column(String(100))   #后台操作密码
     keypair = Column(String(2000))        #密钥对缓存
     __table_args__ = (
