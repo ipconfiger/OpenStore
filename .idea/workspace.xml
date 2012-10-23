@@ -37,7 +37,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="186" column="33" selection-start="6327" selection-end="6327" vertical-scroll-proportion="0.0">
+            <state line="190" column="46" selection-start="6404" selection-end="6419" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#18#33#0" expanded="true" />
               </folding>
@@ -48,7 +48,7 @@
       <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="24" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.69131833">
+            <state line="76" column="87" selection-start="2573" selection-end="2573" vertical-scroll-proportion="0.64285713">
               <folding />
             </state>
           </provider>
@@ -61,15 +61,6 @@
               <folding>
                 <element signature="e#33#43#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/product_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="-17.28">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -637,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/product_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="-17.28">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="204" column="28" selection-start="5977" selection-end="5977" vertical-scroll-proportion="0.0">
@@ -660,6 +644,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/product_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.69453377">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nova/nova.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="75" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0">
@@ -671,7 +662,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="186" column="33" selection-start="6327" selection-end="6327" vertical-scroll-proportion="0.0">
+        <state line="190" column="46" selection-start="6404" selection-end="6419" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#18#33#0" expanded="true" />
           </folding>
@@ -680,7 +671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="24" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.69131833">
+        <state line="76" column="87" selection-start="2573" selection-end="2573" vertical-scroll-proportion="0.64285713">
           <folding />
         </state>
       </provider>

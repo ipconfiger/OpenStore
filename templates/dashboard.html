@@ -74,7 +74,7 @@
                         </ul>
                     </div>
                 {% else %}
-                    <a href="{{ url_for("index.show_create_server",user_product_id=product.id) }}"  class="btn-primary" type="button">创建实例</a>
+                    <a href="{{ url_for("index.show_create_server") }}/{{ product.id }}"  class="btn-primary" type="button">创建实例</a>
                 {% endif %}
             </td>
         </tr>
