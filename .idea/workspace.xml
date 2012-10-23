@@ -113,7 +113,7 @@
       <file leaf-file-name="creator.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/creator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="57" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.621118">
+            <state line="45" column="42" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.621118">
               <folding />
             </state>
           </provider>
@@ -701,7 +701,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/creator.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="57" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.621118">
+        <state line="45" column="42" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.621118">
           <folding />
         </state>
       </provider>

@@ -29,7 +29,7 @@
             }
             else{
                 lock=false;
-                pop_alert('err',"创建失败，请联系客服工程师协助处理");
+                pop_alert('err',"创建请求失败，请联系客服工程师协助处理");
             }
         },type="json");
     }
@@ -43,7 +43,7 @@
                 if (d.info!="ERROR"){
                     setTimeout(function(){ get_status(); },5000);
                 }else{
-                    pop_alert('err',"创建失败，请联系客服工程师协助处理");
+                    pop_alert('err',"创建过程失败，请联系客服工程师协助处理");
                 }
             }
         },type="json");
