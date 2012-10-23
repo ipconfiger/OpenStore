@@ -23,6 +23,7 @@
                     secure:$("#secury").val()
                };
         $.post("{{ url_for("product.create_server") }}",params,function(d){
+            alert(d.r);
             if (d.r){
                 $("#status_bar").html("<img src='/static/img/loading.gif'/>正在创建虚拟机......")
             }
@@ -30,7 +31,7 @@
                 lock=false;
                 pop_alert('err',"创建失败，请联系客服工程师协助处理");
             }
-        });
+        },type="json");
     }
     function get_status(){
         $.post("{{ url_for("product.create_finish",user_product_id=user_product_id) }}",{},function(d){
@@ -41,7 +42,7 @@
             }else{
                 setTimeout(function(){ get_status(); },5000);
             }
-        });
+        },type="json");
 
     }
     $(function(){

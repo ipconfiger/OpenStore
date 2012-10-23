@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nova/nova.py" afterPath="$PROJECT_DIR$/nova/nova.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/serv.py" afterPath="$PROJECT_DIR$/product/serv.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/creator.html" afterPath="$PROJECT_DIR$/templates/creator.html" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -39,7 +37,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="208" column="28" selection-start="7036" selection-end="7036" vertical-scroll-proportion="0.0">
+            <state line="211" column="34" selection-start="7142" selection-end="7142" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#18#33#0" expanded="true" />
               </folding>
@@ -58,10 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serv.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="serv.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product/serv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="17" selection-start="6784" selection-end="6784" vertical-scroll-proportion="0.46341464">
+            <state line="182" column="17" selection-start="6784" selection-end="6784" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#34#49#0" expanded="true" />
               </folding>
@@ -112,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creator.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="creator.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/creator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="22" selection-start="480" selection-end="480" vertical-scroll-proportion="-8.96">
+            <state line="46" column="5" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.621118">
               <folding />
             </state>
           </provider>
@@ -148,10 +146,10 @@
         <option value="$PROJECT_DIR$/nova/api.py" />
         <option value="$PROJECT_DIR$/nova/mock.py" />
         <option value="$PROJECT_DIR$/user/serv.py" />
-        <option value="$PROJECT_DIR$/templates/creator.html" />
         <option value="$PROJECT_DIR$/nova/nova.py" />
         <option value="$PROJECT_DIR$/product/serv.py" />
         <option value="$PROJECT_DIR$/product/views.py" />
+        <option value="$PROJECT_DIR$/templates/creator.html" />
       </list>
     </option>
   </component>
@@ -626,13 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/creator.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="22" selection-start="480" selection-end="480" vertical-scroll-proportion="-8.96">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0">
@@ -690,21 +681,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/product/serv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="17" selection-start="6784" selection-end="6784" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#34#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="28" selection-start="7036" selection-end="7036" vertical-scroll-proportion="0.0">
+        <state line="211" column="34" selection-start="7142" selection-end="7142" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#18#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/serv.py">
+    <entry file="file://$PROJECT_DIR$/templates/creator.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="17" selection-start="6784" selection-end="6784" vertical-scroll-proportion="0.46341464">
-          <folding>
-            <element signature="e#34#49#0" expanded="true" />
-          </folding>
+        <state line="46" column="5" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.621118">
+          <folding />
         </state>
       </provider>
     </entry>
