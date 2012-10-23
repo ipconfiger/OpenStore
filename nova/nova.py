@@ -5,6 +5,7 @@ import time
 import settings
 from models import Tenant
 from flask import g
+import logging as log
 
 def auth():
     return api.Token(*settings.NOVA_ADMIN)
@@ -65,6 +66,7 @@ def create_server(server_name, favor_id, image_id, secure, key_name):
     token = auth()
     server_acc = api.Server(token)
     server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
+    log.error(server_data)
     server = api.ServerInstance(server_data)
     return True, server.id
 
