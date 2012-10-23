@@ -39,23 +39,20 @@ def serial_maker():
 
 def read_random(length):
     import random
-    save_str = "abcdefghjkmnpqrstwxyz2346789"
+    save_str = "ABCDEFGHJKLMNPQRSTWXYZ2346789"
     return random.sample(save_str,length)
 
 
 def generate_code_image(size, length):
-    import random
     from PIL import Image, ImageDraw, ImageFilter, ImageFont
     font_path = os.path.abspath(os.path.join(os.getcwd(),"code.ttf"))
-    font = ImageFont.truetype(font_path, 18)
+    font = ImageFont.truetype(font_path, 22)
     words = "".join(read_random(length))
     w, h = size
     font_w, font_h = font.getsize(words)
     img = Image.new('RGB',size,(255,255,255))
     draw = ImageDraw.Draw(img)
-    draw.text(((w-font_w)/3,h-font_h),words,font=font,fill=(40,40,40))
-    #params = [1-float(random.randint(1,2))/100,0,0,0,1-float(random.randint(1,10))/100,float(random.randint(1,2))/500,0.001,float(random.randint(1, 2)) / 500]
-    #img = img.transform(size, Image.PERSPECTIVE, params)
+    draw.text(5,5,words,font=font,fill=(40,40,40))
     img = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
     return img, words
 
