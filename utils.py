@@ -54,8 +54,8 @@ def generate_code_image(size, length):
     img = Image.new('RGB',size,(255,255,255))
     draw = ImageDraw.Draw(img)
     draw.text(((w-font_w)/3,h-font_h),words,font=font,fill=(40,40,40))
-    params = [1-float(random.randint(1,2))/100,0,0,0,1-float(random.randint(1,10))/100,float(random.randint(1,2))/500,0.001,float(random.randint(1, 2)) / 500]
-    img = img.transform(size, Image.PERSPECTIVE, params)
+    #params = [1-float(random.randint(1,2))/100,0,0,0,1-float(random.randint(1,10))/100,float(random.randint(1,2))/500,0.001,float(random.randint(1, 2)) / 500]
+    #img = img.transform(size, Image.PERSPECTIVE, params)
     img = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
     return img, words
 
