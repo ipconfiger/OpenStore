@@ -54,3 +54,8 @@ def get_tenent():
     g.db.commit()
     return dict(id=tenant.id,name=tenant.name,user_id=tenant.admin_user_id)
 
+
+def get_images():
+    token = auth()
+    platform = api.Platform(token)
+    return platform.image_list()

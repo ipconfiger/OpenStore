@@ -34,6 +34,17 @@
             <div class="controls">
                 <select id="images" name="image_id">
                     <option value="">请选择操作系统</option>
+                    {% for image in images %}
+                    <option value="{{ image.id }}">{{ image.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="images">安全组</label>
+            <div class="controls">
+                <select id="secury" name="image_id">
+                    <option value="default">默认安全组</option>
                 </select>
             </div>
         </div>
