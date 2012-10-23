@@ -4,12 +4,9 @@
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shell/refresh_tenant.py" afterPath="$PROJECT_DIR$/shell/refresh_tenant.py" />
     </list>
-    <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" time="1350977959826" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +79,7 @@
       <file leaf-file-name="refresh_tenant.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shell/refresh_tenant.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="507" selection-end="507" vertical-scroll-proportion="0.45440957">
+            <state line="6" column="44" selection-start="155" selection-end="155" vertical-scroll-proportion="0.14349777">
               <folding>
                 <element signature="e#33#56#0" expanded="true" />
               </folding>
@@ -93,7 +90,7 @@
       <file leaf-file-name="loader.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shell/loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="10" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.0">
+            <state line="25" column="1" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#33#43#0" expanded="true" />
               </folding>
@@ -653,7 +650,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shell/loader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="10" selection-start="1037" selection-end="1037" vertical-scroll-proportion="0.0">
+        <state line="25" column="1" selection-start="660" selection-end="660" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#33#43#0" expanded="true" />
           </folding>
@@ -662,7 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shell/refresh_tenant.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="507" selection-end="507" vertical-scroll-proportion="0.45440957">
+        <state line="6" column="44" selection-start="155" selection-end="155" vertical-scroll-proportion="0.14349777">
           <folding>
             <element signature="e#33#56#0" expanded="true" />
           </folding>

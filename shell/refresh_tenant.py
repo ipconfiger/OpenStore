@@ -5,11 +5,10 @@ from models import Tenant
 
 def can_insert(tenant_id):
     tenant = db.query(Tenant).get(tenant_id)
-    print tenant
     return False if tenant else True
 
 def main():
-    tenant_list = get_tenent()
+    tenant_list = all_tenent()
     for tenant in tenant_list:
         if can_insert(tenant['id']):
             tn = Tenant(tenant['id'],tenant['name'],tenant['user_id'])
