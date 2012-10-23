@@ -4,7 +4,7 @@
     $(function(){
        $("#change_reg").click(function(){
            var r = parseInt(Math.random()*(9999-1000+1)+1000);
-           var url = "{{ url_for("index.reg_code") }}?v="+r
+           var url = "{{ url_for("index.reg_code") }}?v="+r;
            $("#reg_code").attr("src",url);
        });
     });

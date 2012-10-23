@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/regist.html" afterPath="$PROJECT_DIR$/templates/regist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/views.py" afterPath="$PROJECT_DIR$/user/views.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -45,37 +46,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nova/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="268" column="52" selection-start="7266" selection-end="7266" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#34#49#0" expanded="true" />
-                <element signature="e#1254#1293#1" expanded="true" />
-                <element signature="e#1815#1841#1" expanded="true" />
-                <element signature="e#4907#4930#1" expanded="true" />
-                <element signature="e#5086#5159#1" expanded="true" />
-                <element signature="e#5266#5403#1" expanded="true" />
-                <element signature="e#5748#5887#1" expanded="true" />
-                <element signature="e#6869#6974#1" expanded="true" />
-                <element signature="e#7163#7213#1" expanded="true" />
-                <element signature="e#7358#7407#1" expanded="true" />
-                <element signature="e#7795#7824#1" expanded="true" />
-                <element signature="e#8090#8121#1" expanded="true" />
-                <element signature="e#8265#8294#1" expanded="true" />
-                <element signature="e#8499#8529#1" expanded="true" />
-                <element signature="e#9713#9736#1" expanded="true" />
-                <element signature="e#10445#10469#1" expanded="true" />
-                <element signature="e#10606#10654#1" expanded="true" />
-                <element signature="e#10838#11085#1" expanded="true" />
-                <element signature="e#11782#11830#1" expanded="true" />
-                <element signature="e#12003#12053#1" expanded="true" />
-                <element signature="e#12238#12284#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="nova.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nova/nova.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,13 +68,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
+      <file leaf-file-name="regist.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/regist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#18#27#0" expanded="true" />
-              </folding>
+            <state line="8" column="10" selection-start="321" selection-end="321" vertical-scroll-proportion="13.44">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="32" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.3348281">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,15 +93,6 @@
               <folding>
                 <element signature="e#19#131#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regist.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/regist.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="10" selection-start="320" selection-end="320" vertical-scroll-proportion="0.21018063">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -144,7 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/creator.html" />
         <option value="$PROJECT_DIR$/nova/mock.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/settings.py" />
@@ -160,6 +127,7 @@
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/index.py" />
         <option value="$PROJECT_DIR$/templates/regist.html" />
+        <option value="$PROJECT_DIR$/user/views.py" />
       </list>
     </option>
   </component>
@@ -209,6 +177,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="orbis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orbis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orbis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -547,13 +529,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common_error.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="29" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0">
@@ -660,15 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/serv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="43" selection-start="5517" selection-end="5517" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#34#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="7" selection-start="454" selection-end="454" vertical-scroll-proportion="0.6696562">
@@ -676,11 +642,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/regist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="10" selection-start="321" selection-end="321" vertical-scroll-proportion="13.44">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0">
+        <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.74140507">
           <folding>
             <element signature="e#18#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/serv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="43" selection-start="5517" selection-end="5517" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#34#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -694,9 +676,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/regist.html">
+    <entry file="file://$PROJECT_DIR$/user/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="10" selection-start="320" selection-end="320" vertical-scroll-proportion="0.21018063">
+        <state line="37" column="32" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.3348281">
           <folding />
         </state>
       </provider>

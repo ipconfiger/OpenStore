@@ -33,6 +33,10 @@ def login():
 @user.route('/regist', methods=['GET','POST'])
 def create():
     if request.method == "POST":
+        reg_code = request.form.get("code","").strip().lower()
+        if reg_code != session["code"].strip().lower():
+            errors = [u"验证码不正确"]
+            return render_template("regist.html",**locals())
         form = RegistForm(request.form)
         if form.validate():
             try:
