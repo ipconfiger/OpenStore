@@ -9,7 +9,10 @@ def can_insert(tenant_id):
 def main():
     tenant_list = get_tenent()["tenants"]
     for tenant in tenant_list:
-        if tenant["enabled"] and tenant["name"] not in ["aipuTenent","adminTenant","serviceTenant","maotaiTenant"]:
-
-            print tenant["id"],tenant["name"]
+        if can_insert(tenant['id']):
+            tn = Tenant(tenant['id'],tenant['name'],tenant['user_id'])
+            db.add(tn)
+            print "tenant :",tenant['name']," added to db"
+    db.flush()
+    db.commit()
 
