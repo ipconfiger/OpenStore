@@ -13,7 +13,7 @@ def index_():
 
 @index.route('/code')
 def reg_code():
-    img, code =generate_code_image((100,30),5)
+    img, code =generate_code_image((80,30),5)
     session["code"] = code
     tp = NamedTemporaryFile()
     img.save(tp.name,format="png")
