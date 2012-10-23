@@ -205,8 +205,9 @@ def create_server():
     image_id = request.form.get("image_id")
     secure = request.form.get("secure")
     try:
-        serv.create_server(user_product_id, server_name, image_id, secure)
-        return json_response(True,{})
+        server_id = serv.create_server(user_product_id, server_name, image_id, secure)
+        log.error(server_id)
+        return json_response(True,server_id)
     except Exception, ex:
         log.error(print_debug(ex))
         g.db.rollback()

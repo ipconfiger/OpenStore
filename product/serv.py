@@ -6,7 +6,7 @@ import logging as log
 from uuid import uuid4
 from flask import g, url_for, session
 from cPickle import loads, dumps
-from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant
+from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant, Tenant
 from common_error import DuplicateException, EmptyException
 
 
@@ -170,9 +170,10 @@ def create_server(user_product_id, server_name, image_id, secury):
     from user.serv import get_user_tenant
     userproduct = g.db.query(UserProduct).get(user_product_id)
     usertenant = get_user_tenant(userproduct.user_id)
+    tenant = g.db.query(Tenant).get(usertenant.tenant_id)
     keypair = loads(usertenant.keypair)
     product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
-    rs, server_id = nova.api().create_server(server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
+    rs, server_id = nova.api().create_server(tenant.name,server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
     if rs:
         userproduct.image_id = image_id
         userproduct.instance_name = server_name

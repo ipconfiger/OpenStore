@@ -7,8 +7,12 @@ from models import Tenant
 from flask import g
 import logging as log
 
-def auth():
-    return api.Token(*settings.NOVA_ADMIN)
+def auth(tenant_name=None):
+    if not tenant_name:
+        return api.Token(*settings.NOVA_ADMIN)
+    else:
+
+        return api.Token(*[settings.NOVA_ADMIN[0],settings.NOVA_ADMIN[1],tenant_name])
 
 def all_tenant():
     results = []
@@ -62,8 +66,8 @@ def get_images():
     return [dict(id=image['id'],name=image["name"]) for image in platform.image_list()["images"]]
 
 
-def create_server(server_name, favor_id, image_id, secure, key_name):
-    token = auth()
+def create_server(tenant_name, server_name, favor_id, image_id, secure, key_name):
+    token = auth(tenant_name=tenant_name)
     server_acc = api.Server(token)
     server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
     log.error(server_data)
