@@ -2,9 +2,10 @@
 __author__ = 'alex'
 import mock
 import nova
+import settings
 
-def init_nova(type):
-    if type=="mock":
+def api():
+    if settings.NOVA=="mock":
         return mock
     else:
         return nova

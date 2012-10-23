@@ -141,13 +141,13 @@ def create_oneitem(user, product_key, pay_type, pay_count, count):
 
 
 def finish_order(order):
-    from settings import NOVA
+    import nova
     from user import serv
     order.status = 2
     useraccount = serv.get_user_account(order.user_id)
     user = serv.get_user_login(order.user_id)
     if not useraccount.tenant_id:
-        useraccount.tenant_id = NOVA.get_tenent()
+        useraccount.tenant_id = nova.api().get_tenent()
     orderproducts = g.db.query(OrderProduct).filter(OrderProduct.order_id==order.id).all()
     for orderproduct in orderproducts:
         userproduct = UserProduct(user, orderproduct)
@@ -156,12 +156,12 @@ def finish_order(order):
     g.db.commit()
 
 def create_server(user_product_id, server_name, image_id):
-    from settings import NOVA
+    import nova
     from user.serv import get_user_account
     userproduct = g.db.query(UserProduct).get(user_product_id)
     useraccount = get_user_account(userproduct.user_id)
     product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
-    rs, server_id = NOVA.create_server(useraccount.tenant_id, product.flover_id, image_id)
+    rs, server_id = nova.api().create_server(useraccount.tenant_id, product.flover_id, image_id)
     if rs:
         userproduct.image_id = image_id
         userproduct.instance_name = server_name
@@ -170,10 +170,10 @@ def create_server(user_product_id, server_name, image_id):
     g.db.commit()
 
 def get_status(user_id, server_id):
-    from settings import NOVA
+    import nova
     from user.serv import  get_user_account
     useraccount = get_user_account(user_id)
-    return NOVA.server_status(useraccount.tenant_id, server_id)
+    return nova.api().server_status(useraccount.tenant_id, server_id)
 
 
 

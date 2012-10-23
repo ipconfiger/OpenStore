@@ -1,5 +1,4 @@
 # encoding: utf-8
-import nova
 
 DEBUG = True
 
@@ -27,4 +26,4 @@ DEFAULT_MAIL_SENDER = 'liming0831@163.com'
 
 NOVA_ADMIN = ('admin','aipuip662012','adminTenant')
 
-NOVA = nova.init_nova("mock")
+NOVA = "mock"
