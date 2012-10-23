@@ -187,6 +187,15 @@ def manage_orders():
     pids = pages(total,page_size)
     return render_template("", **locals())
 
+
+@product.route("/user_product/<user_product_id>")
+def show_create_server(user_product_id):
+    import nova
+    userproduct = g.db.query(UserProduct).get(user_product_id)
+    images = nova.api().get_images()
+    return render_template("creator.html",**locals())
+
+
 @product.route("/server",methods=["POST"])
 @login_required
 def create_server():

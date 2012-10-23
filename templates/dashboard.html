@@ -60,7 +60,22 @@
             <td>{{ product.product.storage }}G</td>
             <td>准备创建</td>
             <td>
-                <button class="btn-primary" type="button">创建实例</button>
+                {% if product.image_id %}
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                            操作主机
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">重启</a></li>
+                            <li><a href="#">关机</a></li>
+                            <li><a href="#">打开VNC</a></li>
+                            <li><a href="#">申请删除</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <a href="{{ url_for("index.show_create_server",user_product_id=product.id) }}"  class="btn-primary" type="button">创建实例</a>
+                {% endfor %}
             </td>
         </tr>
         {% endfor %}
@@ -72,18 +87,7 @@
             <td>10G</td>
             <td>正常运行</td>
             <td>
-                <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        操作主机
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">重启</a></li>
-                        <li><a href="#">关机</a></li>
-                        <li><a href="#">打开VNC</a></li>
-                        <li><a href="#">申请删除</a></li>
-                    </ul>
-                </div>
+
             </td>
         </tr>
         </tbody>

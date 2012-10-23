@@ -58,4 +58,4 @@ def get_tenent():
 def get_images():
     token = auth()
     platform = api.Platform(token)
-    return platform.image_list()
+    return [dict(id=image['id'],name=image["name"]) for image in platform.image_list()["images"]]
