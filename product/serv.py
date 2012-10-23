@@ -196,7 +196,7 @@ def try_finish_create(user_product_id):
         userproduct.status =1
     g.db.flush()
     g.db.commit()
-    return userproduct.status
+    return userproduct.status, server.status
 
 
 
