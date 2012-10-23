@@ -204,7 +204,6 @@ def create_server():
 @product.route("/server/<server_id>",methods=["GET"])
 @login_required
 def server_status(server_id):
-    from user.serv import get_user_account
     user_id = g.current_user_id
     return json_response(True,serv.get_status(user_id, server_id))
 

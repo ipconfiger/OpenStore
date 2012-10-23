@@ -267,7 +267,7 @@ class Tenant(KeyStornRead,KeyStornWrite):
         :return:
         """
         path="/v2.0/tenants/%s/users"%self.tenant_id
-        return self.kr_process(path,None,requests.get)
+        return self.kw_process(path,None,requests.get)
 
     def tenant_list(self):
         """

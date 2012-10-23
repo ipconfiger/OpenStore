@@ -13,10 +13,25 @@ def all_tenant():
     tenant_access = api.Tenant(token)
     tenants = tenant_access.tenant_list()
     for tenant in tenants["tenants"]:
-        tenant_access(tenant["id"])
-        users = tenant_access.user_list()
-        print "tenant:", tenant["name"]
-        print users
+        if tenant["enabled"] and tenant["name"] not in ["aipuTenent","adminTenant","serviceTenant","maotaiTenant"]:
+            tenant_access(tenant["id"])
+            users = tenant_access.user_list()
+            user_items = users["users"]
+            user = None
+            if not user_items:
+                continue
+            for u in user_items:
+                if u["tenantId"]:
+                    user = u
+                    break
+            if not user:
+                continue
+            results.append(dict(
+                id = tenant["id"],
+                name = tenant["name"],
+                user_id = user["id"],
+            ))
+    return results
 
 
 def all_key():
