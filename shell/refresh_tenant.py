@@ -4,7 +4,9 @@ from nova.nova import *
 from models import Tenant
 
 def can_insert(tenant_id):
-    return False if db.query(Tenant).get(tenant_id) else True
+    tenant = db.query(Tenant).get(tenant_id)
+    print tenant
+    return False if tenant else True
 
 def main():
     tenant_list = get_tenent()
