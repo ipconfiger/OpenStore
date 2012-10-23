@@ -26,6 +26,7 @@
             alert(d.r);
             if (d.r){
                 $("#status_bar").html("<img src='/static/img/loading.gif'/>正在创建虚拟机......")
+                get_status();
             }
             else{
                 lock=false;
