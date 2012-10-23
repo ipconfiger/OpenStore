@@ -3,7 +3,7 @@
 from flask import Blueprint, render_template, abort, flash, get_flashed_messages, request, g, session, send_file
 from jinja2 import TemplateNotFound
 from utils import login_required, generate_code_image, read_random
-from tempfile import TemporaryFile
+from tempfile import NamedTemporaryFile
 
 index = Blueprint('index', __name__,template_folder='templates')
 
@@ -15,10 +15,10 @@ def index_():
 def reg_code():
     img, code =generate_code_image((300,80),5)
     session["code"] = code
-    tp = TemporaryFile()
-    img.save(tp,format="png")
+    tp = NamedTemporaryFile()
+    img.save(tp.name,format="png")
     tp.seek(0)
-    return send_file(tp,mimetype='image/png')
+    return send_file(tp.name,mimetype='image/png')
 
 
 @index.route('/dashboard')

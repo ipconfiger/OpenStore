@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.py" afterPath="$PROJECT_DIR$/index.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils.py" afterPath="$PROJECT_DIR$/utils.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -114,7 +112,7 @@
       <file leaf-file-name="index.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.50224215">
+            <state line="15" column="46" selection-start="500" selection-end="500" vertical-scroll-proportion="0.35874438">
               <folding>
                 <element signature="e#19#131#0" expanded="true" />
               </folding>
@@ -673,7 +671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.50224215">
+        <state line="15" column="46" selection-start="500" selection-end="500" vertical-scroll-proportion="0.35874438">
           <folding>
             <element signature="e#19#131#0" expanded="true" />
           </folding>
