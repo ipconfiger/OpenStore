@@ -7,7 +7,7 @@ def can_insert(tenant_id):
     return False if db.query(Tenant).get(tenant_id) else True
 
 def main():
-    tenant_list = get_tenent()["tenants"]
+    tenant_list = get_tenent()
     for tenant in tenant_list:
         if can_insert(tenant['id']):
             tn = Tenant(tenant['id'],tenant['name'],tenant['user_id'])
