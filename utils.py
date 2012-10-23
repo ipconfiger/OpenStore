@@ -52,7 +52,7 @@ def generate_code_image(size, length):
     font_w, font_h = font.getsize(words)
     img = Image.new('RGB',size,(255,255,255))
     draw = ImageDraw.Draw(img)
-    draw.text(5,5,words,font=font,fill=(40,40,40))
+    draw.text((5,5),words,font=font,fill=(40,40,40))
     img = img.filter(ImageFilter.EDGE_ENHANCE_MORE)
     return img, words
 
