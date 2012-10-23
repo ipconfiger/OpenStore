@@ -59,3 +59,18 @@ def get_images():
     token = auth()
     platform = api.Platform(token)
     return [dict(id=image['id'],name=image["name"]) for image in platform.image_list()["images"]]
+
+
+def create_server(server_name, favor_id, image_id, secure, key_name):
+    token = auth()
+    server_acc = api.Server(token)
+    server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
+    server = api.ServerInstance(server_data)
+    return True, server.id
+
+
+def server_status(server_id):
+    token = auth()
+    server_access = api.Server(token,server_id=server_id)
+    detail = server_access.detail()
+    return api.ServerInstance(detail)

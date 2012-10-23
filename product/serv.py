@@ -164,19 +164,42 @@ def finish_order(order):
     g.db.flush()
     g.db.commit()
 
-def create_server(user_product_id, server_name, image_id, ):
+def create_server(user_product_id, server_name, image_id, secury):
     import nova
-    from user.serv import get_user_account
+    from json import loads
+    from user.serv import get_user_tenant
     userproduct = g.db.query(UserProduct).get(user_product_id)
-    useraccount = get_user_account(userproduct.user_id)
+    usertenant = get_user_tenant(userproduct.user_id)
+    keypair = loads(usertenant.keypair)
     product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
-    rs, server_id = nova.api().create_server(useraccount.tenant_id, product.flover_id, image_id)
+    rs, server_id = nova.api().create_server(server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
     if rs:
         userproduct.image_id = image_id
         userproduct.instance_name = server_name
         userproduct.server_id = server_id
+        userproduct.status = 1
     g.db.flush()
     g.db.commit()
+    return server_id
+
+
+def try_finish_create(user_product_id):
+    import nova
+    userproduct = g.db.query(UserProduct).get(user_product_id)
+    api = nova.api()
+    server = api.server_status(userproduct.server_id)
+    if server.status=="ACTIVE":
+        userproduct.instance_ip = server.server_ip
+        userproduct.status = 2
+    else:
+        userproduct.status =1
+    g.db.flush()
+    g.db.commit()
+    return userproduct.status
+
+
+
+
 
 def get_status(user_id, server_id):
     import nova
@@ -191,7 +214,7 @@ def get_unpay_order(user):
 
 
 def get_user_product(user):
-    return g.db.query(UserProduct).filter(UserProduct.user_id==user.id).all()
+    return g.db.query(UserProduct).filter(UserProduct.user_id==user.id, UserProduct.disabled==False).all()
 
 def get_product(product_key):
     return g.db.query(Product).filter(Product.key==product_key).one()

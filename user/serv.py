@@ -3,7 +3,7 @@ __author__ = 'alex'
 
 import logging as log
 from flask import g, url_for
-from models import UserLogin, UserProfile, UserAccount, LookKey
+from models import UserLogin, UserProfile, UserAccount, LookKey, UserTenant
 from common_error import DuplicateException
 
 
@@ -58,6 +58,8 @@ def get_user_login(user_id):
 def get_user_account(user_id):
     return g.db.query(UserAccount).filter(UserAccount.user_id==user_id).one()
 
+def get_user_tenant(user_id):
+    return g.db.query(UserTenant).filter(UserTenant.user_id==user_id).one()
 
 def send_lock_request(ctl,user_id):
     import uuid

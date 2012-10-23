@@ -474,3 +474,60 @@ class Server(Nova):
                 }
             }
             return self.nova_process(path,body,requests.post)
+
+class ServerInstance(object):
+    """
+    {u'server': {u'OS-DCF:diskConfig': u'MANUAL',
+      u'OS-EXT-SRV-ATTR:host': u'CM212',
+      u'OS-EXT-SRV-ATTR:hypervisor_hostname': None,
+      u'OS-EXT-SRV-ATTR:instance_name': u'instance-00000066',
+      u'OS-EXT-STS:power_state': 1,
+      u'OS-EXT-STS:task_state': None,
+      u'OS-EXT-STS:vm_state': u'active',
+      u'accessIPv4': u'',
+      u'accessIPv6': u'',
+      u'addresses': {u'admin': [{u'addr': u'192.168.2.5', u'version': 4}]},
+      u'config_drive': u'',
+      u'created': u'2012-10-02T12:36:07Z',
+      u'flavor': {u'id': u'2',
+       u'links': [{u'href': u'http://10.1.1.6:8774/20edd17bf4d94e5eb6af3a0d44cafe56/flavors/2',
+         u'rel': u'bookmark'}]},
+      u'hostId': u'ed6383a2cf9dda81515b353268ca17a4f9675d80e92129fb1369382e',
+      u'id': u'2bc87536-dffa-4bc4-a6f4-6cc250919415',
+      u'image': {u'id': u'42cc20f9-4ada-4d02-b0f0-49b01935ed35',
+       u'links': [{u'href': u'http://10.1.1.6:8774/20edd17bf4d94e5eb6af3a0d44cafe56/images/42cc20f9-4ada-4d02-b0f0-49b01935ed35',
+         u'rel': u'bookmark'}]},
+      u'key_name': u'key-admin',
+      u'links': [{u'href': u'http://10.1.1.6:8774/v2/20edd17bf4d94e5eb6af3a0d44cafe56/servers/2bc87536-dffa-4bc4-a6f4-6cc250919415',
+        u'rel': u'self'},
+       {u'href': u'http://10.1.1.6:8774/20edd17bf4d94e5eb6af3a0d44cafe56/servers/2bc87536-dffa-4bc4-a6f4-6cc250919415',
+        u'rel': u'bookmark'}],
+      u'metadata': {},
+      u'name': u'admin-ub001',
+      u'progress': 0,
+      u'status': u'ACTIVE',
+      u'tenant_id': u'20edd17bf4d94e5eb6af3a0d44cafe56',
+      u'updated': u'2012-10-02T12:36:17Z',
+      u'user_id': u'f439f87c943a4f3db2a20fd8a5253264'}
+    }
+    """
+    def __init__(self, data):
+        self.server_data = data
+
+    @property
+    def id(self):
+        return self.server_data["server"]["id"]
+
+    @property
+    def name(self):
+        return self.server_data["server"]["name"]
+
+    @property
+    def status(self):
+        return self.server_data["server"]["status"]
+
+    @property
+    def server_ip(self):
+        for addr in self.server_data["server"]["addresses"]["admin"]:
+            return addr["addr"]
+        return ""

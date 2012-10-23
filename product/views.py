@@ -189,6 +189,7 @@ def manage_orders():
 
 
 @product.route("/user_product/<user_product_id>")
+@login_required
 def show_create_server(user_product_id):
     import nova
     userproduct = g.db.query(UserProduct).get(user_product_id)
@@ -202,13 +203,24 @@ def create_server():
     user_product_id = int(request.form.get("up_id"))
     server_name = request.form.get("name")
     image_id = request.form.get("image_id")
+    secure = request.form.get("secure")
     try:
-        serv.create_server(user_product_id, server_name, image_id)
+        serv.create_server(user_product_id, server_name, image_id, secure)
         return json_response(True,{})
     except Exception, ex:
         log.error(print_debug(ex))
         g.db.rollback()
         return json_response(False,u"未知异常")
+
+@product.route("/user_product/<user_product_id>",methods=["POST"])
+@login_required
+def create_finish(user_product_id):
+    code = serv.try_finish_create(user_product_id)
+    if code>1:
+        return json_response(True,{})
+    else:
+        return json_response(False,{})
+
 
 @product.route("/server/<server_id>",methods=["GET"])
 @login_required

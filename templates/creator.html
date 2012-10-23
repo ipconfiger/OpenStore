@@ -2,16 +2,41 @@
 {% block header %}
     <script type="text/javascript">
     function create(btn){
-        $.post("/server",{},function(d){
-
+        if ($("#images").val()==""){
+            pop_alert('err',"请选择一个操作系统");
+            return ;
+        }
+        var params = {
+                    up_id:"{{ user_product_id }}",
+                    name:$("#instance_name").val(),
+                    image_id:$("#images").val(),
+                    secure:$("#secury").val()
+               };
+        $.post("{{ url_for("product.create_server") }}",params,function(d){
+            if (d.r){
+                $("#status_bar").html("<img src='/static/img/loading.gif'/>正在创建虚拟机......")
+            }
+            else{
+                pop_alert('err',"创建失败，请联系客服工程师协助处理");
+            }
         });
     }
     function get_status(){
+        $.post("{{ url_for("product.create_finish",user_product_id=user_product_id) }}",{},function(d){
+            if(d.r){
+                $("#status_bar").html();
+                pop_alert("info","主机创建成功，3秒后返回我的控制台");
+                setTimeout(function(){ Geolocation.href = '{{ url_for("index.dashborad") }}'; },3000);
+            }else{
+                setTimeout(function(){ get_status(); },5000);
+            }
+        });
 
     }
     $(function(){
         $("#create_btn").click(function(){
-           create($(this));
+            $(this).addClass("disabled");
+            create($(this));
         });
     });
     </script>
@@ -20,8 +45,9 @@
     <div id="process_show">
     </div>
     <div class="page-header">
-        <h1>创建虚拟机实例<small></small></h1>
+        <h1>创建虚拟机实例<small><a href="{{ url_for("index.dashboard") }}">返回我的控制台</a> </small></h1>
     </div>
+    <div id="status_bar"></div>
     <form class="form-horizontal">
         <div class="control-group">
             <label class="control-label" for="instance_name">实例名称</label>
@@ -43,7 +69,7 @@
         <div class="control-group">
             <label class="control-label" for="images">安全组</label>
             <div class="controls">
-                <select id="secury" name="image_id">
+                <select id="secury" name="secury">
                     <option value="default">默认安全组</option>
                 </select>
             </div>

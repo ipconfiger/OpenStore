@@ -11,8 +11,8 @@ def regist_key():
 def get_image_list():
     return []
 
-def create_server(tenant_id, favor_id, image_id):
+def create_server(server_name, favor_id, image_id, secure, key_name):
     return True, uuid4().hex
 
-def server_status(tenant_id , server_id):
+def server_status(server_id):
     return "working"
