@@ -143,6 +143,7 @@ def create_oneitem(user, product_key, pay_type, pay_count, count):
 def finish_order(order):
     import nova
     from user import serv
+    from json import dumps
     order.status = 2
     useraccount = serv.get_user_account(order.user_id)
     user = serv.get_user_login(order.user_id)
@@ -154,7 +155,7 @@ def finish_order(order):
         usertenant.tenant_name = tenant['name']
         usertenant.admin_user_id = tenant['user_id']
         key_pair = nova.api().gen_key()
-        usertenant.keypair = key_pair
+        usertenant.keypair = dumps(key_pair)
         g.db.add(usertenant)
     orderproducts = g.db.query(OrderProduct).filter(OrderProduct.order_id==order.id).all()
     for orderproduct in orderproducts:
