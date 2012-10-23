@@ -33,3 +33,6 @@ def main():
             print print_debug(e)
     else:
         print "argument missing ,need module name!"
+
+if __name__=="__main__":
+    main()
