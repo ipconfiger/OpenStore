@@ -248,9 +248,10 @@ def down_key():
         f = NamedTemporaryFile()
         f.write(private_key)
         userprofile.down_key=True
+        g.db.add(userprofile)
         g.db.flush()
         g.db.commit()
-        return send_file(f.name,attachment_filename="private_key.pem",mimetype="application/x-msdownload")
+        return send_file(f.name,attachment_filename="private_key.pem",mimetype="application/x-x509-ca-cert")
     except Exception, e:
         log.error(print_debug(e))
         g.db.rollback()
