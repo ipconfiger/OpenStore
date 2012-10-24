@@ -1,15 +1,17 @@
 {% extends "mid_base.html" %}
-<script type="text/javascript">
-    function open_vnc(){
-        $("#vnc_holder").show();
-        $("#vnc_window").attr("src","{{ vnc_url }}");
-    }
-    $(function(){
-        $("#open_btn").click(function(){
-            open_vnc();
+{% block header %}
+    <script type="text/javascript">
+        function open_vnc(){
+            $("#vnc_holder").show();
+            $("#vnc_window").attr("src","{{ vnc_url }}");
+        }
+        $(function(){
+            $("#open_btn").click(function(){
+                open_vnc();
+            });
         });
-    });
-</script>
+    </script>
+{% endblock %}
 {% block mid %}
 <table class="table">
     <tbody>
