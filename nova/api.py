@@ -476,6 +476,17 @@ class Server(Nova):
             }
             return self.nova_process(path,body,requests.post)
 
+    def openvnc(self):
+        if self.server_id:
+            path = "/servers/%s/action"%self.server_id
+            params = {
+                "os-getVNCConsole": {
+                    "type": "novnc"
+                }
+            }
+            return self.nova_process(path,params,requests.post)
+
+
 class ServerInstance(object):
     """
     {u'server': {u'OS-DCF:diskConfig': u'MANUAL',

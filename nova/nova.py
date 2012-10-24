@@ -74,6 +74,12 @@ def create_server(tenant_name, server_name, favor_id, image_id, secure, key_name
     server = api.ServerInstance(server_data)
     return True, server.id, server.password
 
+def get_vnc_url(tenant_name, server_id):
+    token = auth(tenant_name=tenant_name)
+    server_acc = api.Server(token,server_id=server_id)
+    results = server_acc.openvnc()
+    return results["console"]["url"]
+
 
 def server_status(server_id):
     token = auth()

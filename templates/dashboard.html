@@ -69,7 +69,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">重启</a></li>
                             <li><a href="#">关机</a></li>
-                            <li><a href="#">打开VNC</a></li>
+                            <li><a href="{{ url_for("product.server_vnc",user_product_id=product.id) }}">打开VNC</a></li>
                             <li><a href="#">申请删除</a></li>
                         </ul>
                     </div>

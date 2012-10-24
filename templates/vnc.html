@@ -1,0 +1,36 @@
+{% extends "mid_base.html" %}
+<script type="text/javascript">
+    function open_vnc(){
+        $("#vnc_holder").show();
+        $("#vnc_window").attr("src","{{ vnc_url }}");
+    }
+    $(function(){
+        $("#open_btn").click(function(){
+            open_vnc();
+        });
+    });
+</script>
+{% block mid %}
+<table class="table">
+    <tbody>
+    <tr>
+        <td><strong>服务器名</strong></td><td>{{ product.name }}</td>
+    </tr>
+    <tr>
+        <td><strong>服务器IP</strong></td><td>{{ product.instance_ip }}</td>
+    </tr>
+    <tr>
+        <td><strong>操作系统</strong></td><td>{{ product.image_id }}</td>
+    </tr>
+    <tr>
+        <td><strong>服务器状态</strong></td><td>{{ product.status }}</td>
+    </tr>
+    </tbody>
+</table>
+<div class="well">
+<div class="pull-right"><button id="open_btn" class="btn btn-primary">打开VNC</button> </div>
+<div id="vnc_holder" style="display: none;">
+    <iframe id="vnc_window" width="500" height="300" src=""></iframe>
+</div>
+</div>
+{% endblock %}

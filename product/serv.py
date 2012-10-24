@@ -200,7 +200,28 @@ def try_finish_create(user_product_id):
     return userproduct.status, server.status
 
 
+def fresh_server_status(user_product_id):
+    import nova
+    userproduct = g.db.query(UserProduct).get(user_product_id)
+    api = nova.api()
+    server = api.server_status(userproduct.server_id)
+    if server.status=="ACTIVE":
+        userproduct.instance_ip = server.server_ip
+        userproduct.status = 2
+    else:
+        userproduct.status = 4
+    g.db.flush()
+    g.db.commit()
+    return server.status
 
+def start_vnc(user_product_id):
+    import nova
+    from user.serv import get_user_tenant
+    userproduct = g.db.query(UserProduct).get(user_product_id)
+    usertenant = get_user_tenant(userproduct.user_id)
+    tenant = g.db.query(Tenant).get(usertenant.tenant_id)
+    api = nova.api()
+    return userproduct, api.get_vnc_url(tenant.name,userproduct.server_id)
 
 
 def get_status(user_id, server_id):

@@ -6,7 +6,7 @@ from json import dumps
 from flask import Blueprint, render_template, abort, request, g, redirect, url_for, session
 from jinja2 import TemplateNotFound
 from forms import *
-from models import Product, Favorable, Order, OrderProduct, UserProduct
+from models import Product, Favorable, Order, OrderProduct, UserProduct, Tenant
 from user.serv import get_user_login
 import logging as log
 
@@ -229,6 +229,10 @@ def server_status(server_id):
     user_id = g.current_user_id
     return json_response(True,serv.get_status(user_id, server_id))
 
+@product.route("/user_product/vnc/<user_product_id>")
+def server_vnc(user_product_id):
+    product, vnc_url = serv.start_vnc(user_product_id)
+    return render_template("vnc.html", **locals())
 
 
 @product.route("/manage",methods=['GET','POST'])
