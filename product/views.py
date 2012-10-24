@@ -225,7 +225,7 @@ def create_finish(user_product_id):
 @product.route("/server/<server_id>",methods=["GET"])
 @login_required
 def server_status(server_id):
-    user_id = g.current_user_id
+    user_id = g.current_login_id
     return json_response(True,serv.get_status(user_id, server_id))
 
 @product.route("/user_product/vnc/<user_product_id>")
@@ -240,7 +240,7 @@ def down_key():
     from json import loads
     from tempfile import NamedTemporaryFile
     try:
-        user_id = g.current_user_id
+        user_id = g.current_login_id
         userprofile = get_user_profile(user_id)
         usertenant = get_user_tenant(user_id)
         keypair = loads(usertenant.keypair)
