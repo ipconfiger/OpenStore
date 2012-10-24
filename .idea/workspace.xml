@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboard.html" afterPath="$PROJECT_DIR$/templates/dashboard.html" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
@@ -67,7 +66,7 @@
       <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="25" selection-start="548" selection-end="548" vertical-scroll-proportion="0.48177496">
+            <state line="89" column="28" selection-start="2791" selection-end="2791" vertical-scroll-proportion="2.2567353">
               <folding>
                 <element signature="e#1560#1582#0" expanded="true" />
               </folding>
@@ -596,7 +595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="25" selection-start="548" selection-end="548" vertical-scroll-proportion="0.48177496">
+        <state line="89" column="28" selection-start="2791" selection-end="2791" vertical-scroll-proportion="2.2567353">
           <folding>
             <element signature="e#1560#1582#0" expanded="true" />
           </folding>

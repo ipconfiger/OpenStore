@@ -78,7 +78,21 @@
             <td>{{ product.product.cpu }}核</td>
             <td>{{ product.product.memory|mems }}</td>
             <td>{{ product.product.storage }}G</td>
-            <td>准备创建</td>
+            <td>
+                {% if product.image_id %}
+                    {% if product.status==2 %}
+                        正常运行
+                    {% endif %}
+                    {% if product.status==1 %}
+                        正在创建
+                    {% endif %}
+                    {% if product.status==4 %}
+                        状态异常
+                    {% endif %}
+                {% else %}
+                    未安装
+                {% endif %}
+            </td>
             <td>
                 {% if product.image_id %}
                     <div class="btn-group">
@@ -99,17 +113,6 @@
             </td>
         </tr>
         {% endfor %}
-        <tr>
-            <td>经济B型</td>
-            <td>CentOS6.2</td>
-            <td>1核</td>
-            <td>512M</td>
-            <td>10G</td>
-            <td>正常运行</td>
-            <td>
-
-            </td>
-        </tr>
         </tbody>
     </table>
 
