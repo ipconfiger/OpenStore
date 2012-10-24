@@ -180,6 +180,7 @@ class Product(Base):
     flover_id = Column(String(36))         #性能指标编号
     monthly_price = Column(Integer)        #按月计费价格 单位 元
     yearly_price = Column(Integer)         #按年计费价格 单位 元
+    valid = Column(Boolean)
 
     __table_args__ = (
         UniqueConstraint(key,),
@@ -208,6 +209,7 @@ class Product(Base):
         self.flover_id = flover_id
         self.monthly_price = price_m
         self.yearly_price = price_y
+        self.valid = True
 
 
 class Order(Base):

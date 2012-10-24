@@ -44,7 +44,7 @@ def show_memory(m):
 @product.route('/')
 def index():
     dn = datetime.datetime.now()
-    products = g.db.query(Product).all()
+    products = g.db.query(Product).filter(Product.valid==True).all()
     for product in products:
         favs = list(g.db.query(Favorable).filter(Favorable.product_key==product.key, Favorable.start<=dn, Favorable.end>=dn).all())
         favorable=favs[0] if favs else None
