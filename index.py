@@ -25,9 +25,10 @@ def reg_code():
 @login_required
 def dashboard():
     from product.serv import get_unpay_order, get_user_product, get_product
-    from user.serv import get_user_login
+    from user.serv import get_user_login, get_user_profile
     user = get_user_login(g.current_login_id)
     orders = get_unpay_order(user)
+    profile = get_user_profile(g.current_login_id)
     products = get_user_product(user)
     for userproduct in products:
         product = get_product(userproduct.product_key)

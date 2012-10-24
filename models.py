@@ -82,6 +82,7 @@ class UserProfile(Base):
     icon = Column(String(150))             #头像地址
     val_email = Column(Boolean)            #邮件是否验证通过
     val_mobile = Column(Boolean)           #手机是否验证通过
+    down_key = Column(Boolean, default=False)
 
     __table_args__ = (
         UniqueConstraint(user_id,),

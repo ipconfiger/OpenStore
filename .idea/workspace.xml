@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.py" afterPath="$PROJECT_DIR$/index.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboard.html" afterPath="$PROJECT_DIR$/templates/dashboard.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/vnc.html" afterPath="$PROJECT_DIR$/templates/vnc.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/serv.py" afterPath="$PROJECT_DIR$/user/serv.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -26,7 +32,7 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="331" column="12" selection-start="10108" selection-end="10116" vertical-scroll-proportion="0.0">
+            <state line="91" column="29" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -35,9 +41,20 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="14" selection-start="7768" selection-end="7778" vertical-scroll-proportion="0.0">
+            <state line="238" column="12" selection-start="8026" selection-end="8034" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#18#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serv.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user/serv.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="0" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#39#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,38 +63,16 @@
       <file leaf-file-name="index.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="45" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+            <state line="33" column="50" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serv.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/product/serv.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="216" column="13" selection-start="7705" selection-end="7714" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#34#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vnc.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/vnc.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="355" selection-end="355" vertical-scroll-proportion="0.30868167">
-              <folding>
-                <element signature="e#930#952#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="80" selection-start="2365" selection-end="2365" vertical-scroll-proportion="-45.44">
+            <state line="35" column="48" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.35499206">
               <folding />
             </state>
           </provider>
@@ -101,15 +96,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creator.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/creator.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="42" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -128,19 +114,19 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/shell/refresh_tenant.py" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/index.py" />
         <option value="$PROJECT_DIR$/templates/regist.html" />
         <option value="$PROJECT_DIR$/user/views.py" />
         <option value="$PROJECT_DIR$/nova/mock.py" />
-        <option value="$PROJECT_DIR$/user/serv.py" />
         <option value="$PROJECT_DIR$/templates/creator.html" />
         <option value="$PROJECT_DIR$/nova/api.py" />
         <option value="$PROJECT_DIR$/nova/nova.py" />
-        <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/product/serv.py" />
-        <option value="$PROJECT_DIR$/product/views.py" />
-        <option value="$PROJECT_DIR$/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/templates/vnc.html" />
+        <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/user/serv.py" />
+        <option value="$PROJECT_DIR$/product/views.py" />
+        <option value="$PROJECT_DIR$/index.py" />
+        <option value="$PROJECT_DIR$/templates/dashboard.html" />
       </list>
     </option>
   </component>
@@ -190,6 +176,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="orbis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orbis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orbis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -486,11 +486,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="13" selection-start="1145" selection-end="1145" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/product_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.69453377" />
@@ -515,28 +510,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/serv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="75" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.27202472">
-          <folding>
-            <element signature="e#39#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#18#27#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -561,10 +540,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/vnc.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="331" column="12" selection-start="10108" selection-end="10116" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="19" column="9" selection-start="505" selection-end="505" vertical-scroll-proportion="0.488746">
+          <folding>
+            <element signature="e#922#944#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -577,9 +558,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/user/serv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#39#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="29" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="50" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="13" selection-start="1145" selection-end="1145" vertical-scroll-proportion="-0.16741405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="14" selection-start="7768" selection-end="7778" vertical-scroll-proportion="0.0">
+        <state line="238" column="12" selection-start="8026" selection-end="8034" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#18#33#0" expanded="true" />
           </folding>
@@ -588,17 +599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="80" selection-start="2365" selection-end="2365" vertical-scroll-proportion="-45.44">
+        <state line="35" column="48" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.35499206">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/vnc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="355" selection-end="355" vertical-scroll-proportion="0.30868167">
-          <folding>
-            <element signature="e#930#952#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

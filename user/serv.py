@@ -55,6 +55,9 @@ def get_user(user_id):
 def get_user_login(user_id):
     return g.db.query(UserLogin).get(user_id)
 
+def get_user_profile(user_id):
+    return g.db.query(UserProfile).filter(UserProfile.user_id==user_id).one()
+
 def get_user_account(user_id):
     return g.db.query(UserAccount).filter(UserAccount.user_id==user_id).one()
 

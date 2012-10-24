@@ -4,6 +4,7 @@
         <p>未完成订单</p>
         <small>未付款以及未完工的订单</small>
     </blockquote>
+    {% if orders %}
     <table class="table">
         <thead>
         <tr>
@@ -28,6 +29,14 @@
         {% endfor %}
         </tbody>
     </table>
+    {% else %}
+        没有未完成订单
+    {% endif %}
+    {% if profile.down_key %}
+        <div class="well">您的私钥已经下载过了，如果丢失，请联系管理员</div>
+    {% else %}
+        <div class="well"><a href="{{ url_for("product.down_key") }}">下载登陆私钥</a>&nbsp;注意：为了保证您的数据安全，服务器将不保存您的私钥，私钥下载后请妥善保存</div>
+    {% endif %}
     <blockquote>
         <p>我的主机</p>
         <small>已经完工的可用主机</small>

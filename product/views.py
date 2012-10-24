@@ -3,11 +3,11 @@ import datetime
 import serv
 from utils import print_debug, json_response, woops, login_required, pages
 from json import dumps
-from flask import Blueprint, render_template, abort, request, g, redirect, url_for, session
+from flask import Blueprint, render_template, abort, request, g, redirect, url_for, session, send_file
 from jinja2 import TemplateNotFound
 from forms import *
 from models import Product, Favorable, Order, OrderProduct, UserProduct, Tenant
-from user.serv import get_user_login
+from user.serv import get_user_login, get_user_account, get_user_profile, get_user_tenant
 import logging as log
 
 
@@ -176,7 +176,6 @@ def operate_order(order_id):
             log.error(print_debug(e))
             return woops(u"完成订单失败")
 
-
 @product.route("/order_manage",methods=["GET"])
 def manage_orders():
     q = g.db.query(Order).order_by(Order.id.desc())
@@ -230,9 +229,33 @@ def server_status(server_id):
     return json_response(True,serv.get_status(user_id, server_id))
 
 @product.route("/user_product/vnc/<user_product_id>")
+@login_required
 def server_vnc(user_product_id):
     product, vnc_url = serv.start_vnc(user_product_id)
     return render_template("vnc.html", **locals())
+
+@product.route("/key")
+@login_required
+def down_key():
+    from json import loads
+    from tempfile import NamedTemporaryFile
+    try:
+        user_id = g.current_user_id
+        userprofile = get_user_profile(user_id)
+        usertenant = get_user_tenant(user_id)
+        keypair = loads(usertenant.keypair)
+        private_key = keypair["keypair"]["private_key"]
+        f = NamedTemporaryFile()
+        f.write(private_key)
+        userprofile.down_key=True
+        g.db.flush()
+        g.db.commit()
+        return send_file(f.name,attachment_filename="private_key.pem",mimetype="text/plain")
+    except Exception, e:
+        log.error(print_debug(e))
+        g.db.rollback()
+        return ""
+
 
 
 @product.route("/manage",methods=['GET','POST'])
