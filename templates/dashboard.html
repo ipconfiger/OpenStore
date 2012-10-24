@@ -1,12 +1,6 @@
 {% extends "mid_base.html" %}
 {% block header %}
-    <script type="text/javascript">
-    $(function(){
-       $("#down_key").click(function(){
-           $("#down_holder").attr("src","{{ url_for("product.down_key") }}");
-       });
-    });
-    </script>
+
 {% endblock %}
 {% block mid %}
     <blockquote xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
@@ -44,8 +38,7 @@
     {% if profile.down_key %}
         <div class="well">您的私钥已经下载过了，如果丢失，请联系管理员</div>
     {% else %}
-        <div class="well"><a id="down_key" href="javascript:void(0);">下载登陆私钥</a>&nbsp;注意：为了保证您的数据安全，服务器将不保存您的私钥，私钥下载后请妥善保存
-        <iframe id="down_holder" width="0" height="0" src="" style="display: none;"></iframe>
+        <div class="well"><a href="{{ url_for("product.down_key") }}" target="_blank">下载登陆私钥</a>&nbsp;注意：为了保证您的数据安全，服务器将不保存您的私钥，私钥下载后请妥善保存
         </div>
     {% endif %}
     <blockquote>
