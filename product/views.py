@@ -251,7 +251,7 @@ def down_key():
         g.db.add(userprofile)
         g.db.flush()
         g.db.commit()
-        return send_file(f.name,attachment_filename="private_key.pem",mimetype="application/x-x509-ca-cert")
+        return send_file(f.name,attachment_filename="private_key.pem",mimetype="application/octet-stream")
     except Exception, e:
         log.error(print_debug(e))
         g.db.rollback()
