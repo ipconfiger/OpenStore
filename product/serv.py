@@ -173,9 +173,10 @@ def create_server(user_product_id, server_name, image_id, secury):
     tenant = g.db.query(Tenant).get(usertenant.tenant_id)
     keypair = loads(usertenant.keypair)
     product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
-    rs, server_id = nova.api().create_server(tenant.name,server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
+    rs, server_id, password = nova.api().create_server(tenant.name,server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
     if rs:
         userproduct.image_id = image_id
+        userproduct.adminpass = password
         userproduct.instance_name = server_name
         userproduct.server_id = server_id
         userproduct.status = 1

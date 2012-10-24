@@ -331,6 +331,7 @@ class UserProduct(Base):
     order_product_id = Column(Integer) #关联的订单对象ID
     image_id = Column(String(36))   #操作系统镜像编号
     server_id = Column(String(36))  #虚拟机实例的编号
+    adminpass = Column(String(20))  #虚拟机admin的密码
     instance_ip = Column(String(15)) #NOVA分配的IP地址
     status = Column(Integer)        #系统状态 0-刚初始化 1-提交创建申请 2－正常运行 3-等待操作
     disabled = Column(Boolean)      #是否被禁用掉

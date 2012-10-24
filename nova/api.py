@@ -5,6 +5,7 @@ import requests
 import base64
 import json
 import logging as log
+from utils import print_debug
 
 KEYSTORN_READ = "http://10.1.1.4:5000"
 KETSTORN_WRITE = "http://10.1.1.4:35357"
@@ -528,6 +529,14 @@ class ServerInstance(object):
 
     @property
     def server_ip(self):
-        for addr in self.server_data["server"]["addresses"]["admin"]:
-            return addr["addr"]
-        return ""
+        try:
+            for addr_group in self.server_data["server"]["addresses"]:
+                for addr in addr_group:
+                    return addr["addr"]
+            return ""
+        except Exception,e:
+            log.error(print_debug(e))
+
+    @property
+    def password(self):
+        return self.server_data["server"]["adminPass"]

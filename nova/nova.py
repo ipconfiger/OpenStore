@@ -72,7 +72,7 @@ def create_server(tenant_name, server_name, favor_id, image_id, secure, key_name
     server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
     log.error(server_data)
     server = api.ServerInstance(server_data)
-    return True, server.id
+    return True, server.id, server.password
 
 
 def server_status(server_id):
