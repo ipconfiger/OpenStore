@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboard.html" afterPath="$PROJECT_DIR$/templates/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="22" selection-start="8006" selection-end="8006" vertical-scroll-proportion="0.0">
+            <state line="252" column="104" selection-start="8593" selection-end="8593" vertical-scroll-proportion="0.68292683">
               <folding>
                 <element signature="e#18#33#0" expanded="true" />
               </folding>
@@ -63,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dashboard.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="28" selection-start="2791" selection-end="2791" vertical-scroll-proportion="2.2567353">
+            <state line="89" column="28" selection-start="2791" selection-end="2791" vertical-scroll-proportion="-56.96">
               <folding>
                 <element signature="e#1560#1582#0" expanded="true" />
               </folding>
@@ -121,8 +121,8 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/user/serv.py" />
         <option value="$PROJECT_DIR$/index.py" />
-        <option value="$PROJECT_DIR$/product/views.py" />
         <option value="$PROJECT_DIR$/templates/dashboard.html" />
+        <option value="$PROJECT_DIR$/product/views.py" />
       </list>
     </option>
   </component>
@@ -584,20 +584,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="22" selection-start="8006" selection-end="8006" vertical-scroll-proportion="0.0">
+        <state line="89" column="28" selection-start="2791" selection-end="2791" vertical-scroll-proportion="-56.96">
           <folding>
-            <element signature="e#18#33#0" expanded="true" />
+            <element signature="e#1560#1582#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="28" selection-start="2791" selection-end="2791" vertical-scroll-proportion="2.2567353">
+        <state line="252" column="104" selection-start="8593" selection-end="8593" vertical-scroll-proportion="0.68292683">
           <folding>
-            <element signature="e#1560#1582#0" expanded="true" />
+            <element signature="e#18#33#0" expanded="true" />
           </folding>
         </state>
       </provider>

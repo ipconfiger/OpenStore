@@ -250,7 +250,7 @@ def down_key():
         userprofile.down_key=True
         g.db.flush()
         g.db.commit()
-        return send_file(f.name,attachment_filename="private_key.pem",mimetype="text/plain")
+        return send_file(f.name,attachment_filename="private_key.pem",mimetype="application/x-msdownload")
     except Exception, e:
         log.error(print_debug(e))
         g.db.rollback()
