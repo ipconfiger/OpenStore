@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/manage_order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/manage_order.html" afterPath="$PROJECT_DIR$/templates/manage_order.html" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -37,7 +35,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="26" selection-start="5778" selection-end="5786" vertical-scroll-proportion="0.0">
+            <state line="165" column="15" selection-start="5759" selection-end="5759" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -46,7 +44,7 @@
       <file leaf-file-name="manage_order.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/manage_order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="17" selection-start="367" selection-end="367" vertical-scroll-proportion="0.4564184">
+            <state line="38" column="13" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.8621236">
               <folding />
             </state>
           </provider>
@@ -523,14 +521,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="26" selection-start="5778" selection-end="5786" vertical-scroll-proportion="0.0">
+        <state line="165" column="15" selection-start="5759" selection-end="5759" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/manage_order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="17" selection-start="367" selection-end="367" vertical-scroll-proportion="0.4564184">
+        <state line="38" column="13" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.8621236">
           <folding />
         </state>
       </provider>

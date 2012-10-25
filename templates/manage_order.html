@@ -21,6 +21,7 @@ function process(url){
     </tr>
     </thead>
     <tbody>
+    {% for order in orders %}
     <tr>
         <td>{{ order.create_time }}</td>
         <td><strong>{{ order.serial_number }}</strong></td>
@@ -35,6 +36,7 @@ function process(url){
             {% endif %}
         </td>
     </tr>
+    {% endfor %}
     </tbody>
 </table>
     {% include "pager.html" %}
