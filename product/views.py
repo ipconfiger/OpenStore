@@ -184,7 +184,7 @@ def manage_orders():
     start = (int(request.args.get("p","1")) - 1) * page_size
     orders = q[start:start+page_size]
     pids = pages(total,page_size)
-    return render_template("", **locals())
+    return render_template("manage_order.html", **locals())
 
 
 @product.route("/user_product/<user_product_id>")

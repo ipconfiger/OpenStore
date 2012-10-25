@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/manage_order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
@@ -32,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="125" selection-start="8672" selection-end="8672" vertical-scroll-proportion="0.3902439">
+            <state line="166" column="26" selection-start="5778" selection-end="5786" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serv.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user/serv.py">
+      <file leaf-file-name="manage_order.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/manage_order.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="0" selection-start="1477" selection-end="1477" vertical-scroll-proportion="0.0">
+            <state line="19" column="17" selection-start="367" selection-end="367" vertical-scroll-proportion="0.4564184">
               <folding />
             </state>
           </provider>
@@ -54,33 +56,6 @@
         <entry file="file://$PROJECT_DIR$/index.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="33" column="50" selection-start="1108" selection-end="1108" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="94" selection-start="1266" selection-end="1266" vertical-scroll-proportion="-2.56">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nova.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nova/nova.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="15" selection-start="2161" selection-end="2172" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nova/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="480" column="54" selection-start="12838" selection-end="12838" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +76,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/shell/refresh_tenant.py" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/templates/regist.html" />
@@ -117,6 +91,7 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/product/views.py" />
+        <option value="$PROJECT_DIR$/templates/manage_order.html" />
       </list>
     </option>
   </component>
@@ -151,7 +126,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -180,26 +154,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orbis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orbis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,7 +360,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19799139" sideWeight="0.67241377" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20373027" sideWeight="0.67241377" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -476,16 +437,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/product_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="25" selection-start="4195" selection-end="4195" vertical-scroll-proportion="0.69453377" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nova/mock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="20" selection-start="319" selection-end="319" vertical-scroll-proportion="0.42040184" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -493,37 +444,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/mid_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#18#27#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="54" column="19" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/creator.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="42" selection-start="1615" selection-end="1615" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nova/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="480" column="54" selection-start="12838" selection-end="12838" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nova/nova.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="15" selection-start="2161" selection-end="2172" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/vnc.html">
@@ -534,6 +465,11 @@
     <entry file="file://$PROJECT_DIR$/product/serv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="216" column="13" selection-start="7705" selection-end="7714" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="11" selection-start="1973" selection-end="1973" vertical-scroll-proportion="0.5318818" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/user/serv.py">
@@ -550,9 +486,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="11" selection-start="1973" selection-end="1973" vertical-scroll-proportion="0.5318818" />
+        <state line="40" column="94" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nova/nova.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="15" selection-start="2161" selection-end="2172" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nova/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="480" column="54" selection-start="12838" selection-end="12838" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="16" selection-start="622" selection-end="927" vertical-scroll-proportion="-19.2">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models.py">
@@ -562,16 +521,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="94" selection-start="1266" selection-end="1266" vertical-scroll-proportion="-2.56">
+        <state line="166" column="26" selection-start="5778" selection-end="5786" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/manage_order.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="125" selection-start="8672" selection-end="8672" vertical-scroll-proportion="0.3902439">
+        <state line="19" column="17" selection-start="367" selection-end="367" vertical-scroll-proportion="0.4564184">
           <folding />
         </state>
       </provider>
