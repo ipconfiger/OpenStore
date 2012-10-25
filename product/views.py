@@ -178,7 +178,7 @@ def operate_order(order_id):
 
 @product.route("/order_manage",methods=["GET"])
 def manage_orders():
-    q = g.db.query(Order).order_by(Order.status.desc(),Order.id.desc())
+    q = g.db.query(Order).order_by(Order.status.asc(),Order.id.desc())
     page_size = 20
     total = q.count()
     start = (int(request.args.get("p","1")) - 1) * page_size
