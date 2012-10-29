@@ -1,0 +1,21 @@
+{% extends "html.html" %}
+{% block main %}
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">云平台管理中心</a>
+            <ul class="nav">
+                <li class="active"><a href="#">业务管理</a></li>
+                <li><a href="#">用户管理</a></li>
+                <li><a href="#">平台管理</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span2">{% block menu%}{% endblock %}</div>
+        <div class="span10">{% block holder %}{% endblock %}</div>
+    </div>
+</div>
+{% endblock %}

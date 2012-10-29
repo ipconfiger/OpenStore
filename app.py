@@ -9,6 +9,7 @@ from index import index
 from user.views import user
 from user.serv import get_user
 from product.views import product
+from admin.views import admin
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from flask_mail import Mail
@@ -23,6 +24,7 @@ app.config.from_object(settings)
 app.register_blueprint(index)
 app.register_blueprint(user)
 app.register_blueprint(product)
+app.register_blueprint(admin)
 
 mail = Mail(app)
 

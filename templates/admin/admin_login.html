@@ -1,0 +1,38 @@
+{% extends "admin_base.html" %}
+{% block header %}
+    <script type="text/javascript">
+        $(function(){
+            $("#change_reg").click(function(){
+                var r = parseInt(Math.random()*(9999-1000+1)+1000);
+                var url = "{{ url_for("index.reg_code") }}?v="+r;
+                $("#reg_code").attr("src",url);
+            });
+        });
+    </script>
+{% endblock %}
+{% block holder %}
+<form class="form-horizontal">
+    <legend>登陆管理平台</legend>
+    <div class="control-group">
+        <label class="control-label" for="inputEmail">登陆邮箱</label>
+        <div class="controls">
+            <input type="text" id="inputEmail" name="login_name" placeholder="Email">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="inputPassword">登陆密码</label>
+        <div class="controls">
+            <input type="password" id="inputPassword" name="password" placeholder="Password">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="code">验证码</label>
+        <div class="controls">
+            <p>
+            <input type="text" id="code" class="span1" name="code" placeholder="验证码"><a id="change_reg" href="javascript:void(0);"><img id="reg_code" src="{{ url_for('index.reg_code') }}"/>点击更换</a>
+            </p>
+            <button type="submit" class="btn">登陆管理平台</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
