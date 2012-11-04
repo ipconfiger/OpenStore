@@ -154,7 +154,7 @@ def finish_order(order):
         usertenant.tenant_id = tenant['id']
         usertenant.tenant_name = tenant['name']
         usertenant.admin_user_id = tenant['user_id']
-        key_pair = nova.api().gen_key()
+        key_pair = nova.api().gen_key(useraccount, tenant["name"])
         usertenant.keypair = dumps(key_pair)
         g.db.add(usertenant)
     orderproducts = g.db.query(OrderProduct).filter(OrderProduct.order_id==order.id).all()
