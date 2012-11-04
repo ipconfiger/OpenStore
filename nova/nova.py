@@ -46,9 +46,9 @@ def all_key():
     sec = api.Security(token)
     return sec.list_key()
 
-def gen_key():
+def gen_key(useraccount, tenant_name,):
     name = str(int(time.time()))
-    token = auth()
+    token = auth(tenant_name=tenant_name,admin=useraccount.user.login_name.replace("@","").replace(".",""),password=useraccount.tenant_password)
     sec = api.Security(token)
     return sec.gen_key(name)
 
