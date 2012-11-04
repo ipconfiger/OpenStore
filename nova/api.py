@@ -120,7 +120,7 @@ class User(KeyStornRead,KeyStornWrite):
             return
         path = "/v2.0/users"
         body = {"user": {"name": username,
-                             "OS-KSADM:password": password,
+                             "password": password,
                              "email": email,
                              "enabled": enabled}}
         rep = self.kw_process(path,body,requests.post)
