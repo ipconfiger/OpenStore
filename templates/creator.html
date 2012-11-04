@@ -38,7 +38,7 @@
             if(d.r){
                 $("#status_bar").html();
                 pop_alert("info","主机创建成功，3秒后返回我的控制台");
-                setTimeout(function(){ Geolocation.href = '{{ url_for("index.dashboard") }}'; },3000);
+                setTimeout(function(){ location.href = '{{ url_for("index.dashboard") }}'; },3000);
             }else{
                 if (d.info!="ERROR"){
                     setTimeout(function(){ get_status(); },5000);
