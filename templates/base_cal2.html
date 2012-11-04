@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block main %}
+{% block content %}
 <div class="row">
     <div class="span2">{% block left %}{% endblock %}</div>
     <div class="span10">
@@ -15,7 +15,7 @@
             {% endfor %}
         {% endif %}
         <div id="alert_bar"></div>
-        {% block content %}{% endblock %}
+        {% block holder %}{% endblock %}
     </div>
 </div>
 {% endblock %}
