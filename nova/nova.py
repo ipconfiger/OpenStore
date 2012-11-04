@@ -56,8 +56,9 @@ def get_tenent(useraccount):
     tenant = g.db.query(Tenant).filter(Tenant.used==False).first()
     tenant.used = True
     token = auth()
-    useraccount.tenant_password = "".join(utils.read_random(20))
-    name = useraccount.user.login_name.replace("@","_").replace(".","_")
+    useraccount.tenant_password = "".join(utils.read_random(10))
+    useraccount.tenant_password = useraccount.tenant_password.lower()
+    name = useraccount.user.login_name.replace("@","").replace(".","")
     ua = api.User(token,None)
     user_id = ua.create(name, useraccount.tenant_password, useraccount.user.login_name, enabled=True)
     role = api.Role(token).get_role_id("projectmanager")
