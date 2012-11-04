@@ -8,12 +8,11 @@ from flask import g
 import logging as log
 import  utils
 
-def auth(tenant_name=None):
+def auth(tenant_name=None, admin=None, password=None):
     if not tenant_name:
         return api.Token(*settings.NOVA_ADMIN)
     else:
-
-        return api.Token(*[settings.NOVA_ADMIN[0],settings.NOVA_ADMIN[1],tenant_name])
+        return api.Token(admin, password, tenant_name)
 
 def all_tenant():
     results = []
@@ -63,7 +62,6 @@ def get_tenent(useraccount):
     user_id = ua.create(name, useraccount.tenant_password, useraccount.user.login_name, enabled=True)
     role = api.Role(token).get_role_id("projectmanager")
     rep = api.Tenant(token,tenant_id=tenant.id).append_user(user_id, role)
-    log.error(rep)
     g.db.flush()
     g.db.commit()
     return dict(id=tenant.id,name=tenant.name,user_id=tenant.admin_user_id)
@@ -75,8 +73,8 @@ def get_images():
     return [dict(id=image['id'],name=image["name"]) for image in platform.image_list()["images"]]
 
 
-def create_server(tenant_name, server_name, favor_id, image_id, secure, key_name):
-    token = auth(tenant_name=tenant_name)
+def create_server(useraccount,tenant_name, server_name, favor_id, image_id, secure, key_name):
+    token = auth(tenant_name=tenant_name,admin=useraccount.user.login_name.replace("@","_").replace(".","_"),password=useraccount.tenant_password)
     server_acc = api.Server(token)
     server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
     log.error(server_data)
