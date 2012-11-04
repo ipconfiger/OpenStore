@@ -148,7 +148,7 @@ def finish_order(order):
     useraccount = serv.get_user_account(order.user_id)
     user = serv.get_user_login(order.user_id)
     if not useraccount.tenant_id:
-        tenant = nova.api().get_tenent()
+        tenant = nova.api().get_tenent(useraccount)
         useraccount.tenant_id = tenant['id']
         usertenant = UserTenant(user)
         usertenant.tenant_id = tenant['id']
