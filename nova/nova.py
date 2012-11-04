@@ -61,12 +61,11 @@ def get_tenent(useraccount):
     name = useraccount.user.login_name.replace("@","_").replace(".","_")
     ua = api.User(token,None)
     user_id = ua.create(name, useraccount.tenant_password, useraccount.user.login_name, enabled=True)
-    role = api.Role(token).get_role_id("project_manager")
+    role = api.Role(token).get_role_id("projectmanager")
     rep = api.Tenant(token,tenant_id=tenant.id).append_user(user_id, role)
     log.error(rep)
     g.db.flush()
     g.db.commit()
-
     return dict(id=tenant.id,name=tenant.name,user_id=tenant.admin_user_id)
 
 

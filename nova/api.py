@@ -24,6 +24,7 @@ def fetch(url, data, headers, method):
         else:
             r=method(url,data=json.dumps(data),headers=headers)
         if r.status_code in [200,201,202,203]:
+            log.error("openstack response:\n%s"%r.json)
             return r.json
         log.error("\n-----------------error---------------\naccess %s with error code %s\n%s"%(url,r.status_code,r.text))
     except Exception,e:
