@@ -167,13 +167,14 @@ def finish_order(order):
 def create_server(user_product_id, server_name, image_id, secury):
     import nova
     from json import loads
-    from user.serv import get_user_tenant
+    from user.serv import get_user_tenant, get_user_account
     userproduct = g.db.query(UserProduct).get(user_product_id)
     usertenant = get_user_tenant(userproduct.user_id)
+    useraccount = get_user_account(userproduct.user_id)
     tenant = g.db.query(Tenant).get(usertenant.tenant_id)
     keypair = loads(usertenant.keypair)
     product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
-    rs, server_id, password = nova.api().create_server(tenant.name,server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
+    rs, server_id, password = nova.api().create_server(useraccount, tenant.name,server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
     if rs:
         userproduct.image_id = image_id
         userproduct.adminpass = password

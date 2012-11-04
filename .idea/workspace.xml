@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/creator.html" afterPath="$PROJECT_DIR$/templates/creator.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/serv.py" afterPath="$PROJECT_DIR$/product/serv.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -32,11 +32,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="serv.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="serv.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product/serv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="0" selection-start="5537" selection-end="5537" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="173" column="57" selection-start="6402" selection-end="6402" vertical-scroll-proportion="0.36585367">
+              <folding>
+                <element signature="e#34#49#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creator.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="creator.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/creator.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="65" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.49689442">
+            <state line="43" column="65" selection-start="1546" selection-end="1546" vertical-scroll-proportion="-12.8">
               <folding />
             </state>
           </provider>
@@ -99,10 +101,10 @@
         <option value="$PROJECT_DIR$/templates/change_email.html" />
         <option value="$PROJECT_DIR$/templates/more_info.html" />
         <option value="$PROJECT_DIR$/templates/mid_base.html" />
-        <option value="$PROJECT_DIR$/product/serv.py" />
         <option value="$PROJECT_DIR$/nova/api.py" />
         <option value="$PROJECT_DIR$/nova/nova.py" />
         <option value="$PROJECT_DIR$/templates/creator.html" />
+        <option value="$PROJECT_DIR$/product/serv.py" />
       </list>
     </option>
   </component>
@@ -560,19 +562,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/serv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="0" selection-start="5537" selection-end="5537" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nova/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="271" column="52" selection-start="7393" selection-end="7393" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#4874#4921#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/creator.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="65" selection-start="1546" selection-end="1546" vertical-scroll-proportion="-12.8">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -585,10 +587,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/creator.html">
+    <entry file="file://$PROJECT_DIR$/product/serv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="65" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.49689442">
-          <folding />
+        <state line="173" column="57" selection-start="6402" selection-end="6402" vertical-scroll-proportion="0.36585367">
+          <folding>
+            <element signature="e#34#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
