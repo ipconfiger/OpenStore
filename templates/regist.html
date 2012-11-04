@@ -41,7 +41,7 @@
         <div class="control-group">
             <label class="control-label" for="code">验证码</label>
             <div class="controls">
-                <input type="text" id="code" class="span1" name="code" placeholder="验证码"><a id="change_reg" href="javascript:void(0);"><img id="reg_code" src="{{ url_for('index.reg_code') }}"/>点击更换</a>
+                <input type="text" id="code" class="span1" name="code" placeholder="验证码"><a id="change_reg" href="javascript:void(0);"><img id="reg_code" src="{{ url_for('index.reg_code') }}?v={{ randcode }}"/>点击更换</a>
             </div>
         </div>
         <div class="control-group">

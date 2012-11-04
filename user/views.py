@@ -48,6 +48,7 @@ def create():
                 errors = [e.message,]
         else:
             errors = [v[0] for k,v in form.errors.iteritems()]
+    randcode = "".join(utils.read_random(5))
     return render_template("regist.html",**locals())
 
 
