@@ -252,7 +252,7 @@ class Tenant(KeyStornRead,KeyStornWrite):
         :return:
         """
         path = "/v2.0/tenants/%s/users/%s/roles/OS-KSADM/%s"%(self.tenant_id, user_id, role_id)
-        return self.kr_process(path,None,requests.put)
+        return self.kw_process(path,None,requests.put)
 
     def remove_user(self, user_id, role_id):
         """
@@ -262,7 +262,7 @@ class Tenant(KeyStornRead,KeyStornWrite):
         :return:
         """
         path = "/v2.0/tenants/%s/users/%s/roles/OS-KSADM/%s"%(self.tenant_id, user_id, role_id)
-        return self.kr_process(path,None,requests.delete)
+        return self.kw_process(path,None,requests.delete)
 
     def user_list(self):
         """
