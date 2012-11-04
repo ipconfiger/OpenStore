@@ -6,6 +6,7 @@ import settings
 from models import Tenant
 from flask import g
 import logging as log
+import  utils
 
 def auth(tenant_name=None):
     if not tenant_name:
@@ -52,11 +53,20 @@ def gen_key():
     sec = api.Security(token)
     return sec.gen_key(name)
 
-def get_tenent():
+def get_tenent(useraccount):
     tenant = g.db.query(Tenant).filter(Tenant.used==False).first()
     tenant.used = True
+    token = auth()
+    useraccount.tenant_password = utils.read_random(20)
+    name = useraccount.user.login_name.replace("@","_").replace(".","_")
+    ua = api.User(token,None)
+    user_id = ua.create(name, useraccount.tenant_password, useraccount.user.login_name, enabled=True)
+    role = api.Role(token).get_role_id("project_manager")
+    rep = api.Tenant(token,tenant_id=tenant.id).append_user(user_id, role)
+    log.error(rep)
     g.db.flush()
     g.db.commit()
+
     return dict(id=tenant.id,name=tenant.name,user_id=tenant.admin_user_id)
 
 

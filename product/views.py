@@ -40,7 +40,6 @@ def show_memory(m):
         return "%sM"%m
     return "%02.1fG"%(m/1024.0)
 
-
 @product.route('/')
 def index():
     dn = datetime.datetime.now()

@@ -119,10 +119,11 @@ class User(KeyStornRead,KeyStornWrite):
             return
         path = "/v2.0/users"
         body = {"user": {"name": username,
-                             "password": password,
+                             "OS-KSADM:password": password,
                              "email": email,
                              "enabled": enabled}}
-        return self.kw_process(path,body,requests.post)
+        rep = self.kw_process(path,body,requests.post)
+        return rep['user']["id"]
 
     def delete(self):
         """
