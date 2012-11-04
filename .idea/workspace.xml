@@ -46,7 +46,7 @@
       <file leaf-file-name="nova.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nova/nova.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="68" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.5365854">
+            <state line="77" column="104" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.31707317">
               <folding>
                 <element signature="e#33#43#0" expanded="true" />
               </folding>
@@ -589,7 +589,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nova/nova.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="68" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.5365854">
+        <state line="77" column="104" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.31707317">
           <folding>
             <element signature="e#33#43#0" expanded="true" />
           </folding>

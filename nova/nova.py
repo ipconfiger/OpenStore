@@ -75,7 +75,7 @@ def get_images():
 
 
 def create_server(useraccount,tenant_name, server_name, favor_id, image_id, secure, key_name):
-    token = auth(tenant_name=tenant_name,admin=useraccount.user.login_name.replace("@","_").replace(".","_"),password=useraccount.tenant_password)
+    token = auth(tenant_name=tenant_name,admin=useraccount.user.login_name.replace("@","").replace(".",""),password=useraccount.tenant_password)
     server_acc = api.Server(token)
     server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
     log.error(server_data)
