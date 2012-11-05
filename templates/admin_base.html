@@ -5,9 +5,9 @@
         <div class="container">
             <a class="brand" href="#">云平台管理中心</a>
             <ul class="nav">
-                <li class="active"><a href="#">业务管理</a></li>
+                <li class="active"><a href="{{ url_for("product.manage_orders") }}">业务管理</a></li>
                 <li><a href="#">用户管理</a></li>
-                <li><a href="#">平台管理</a></li>
+                <li><a href="{{ url_for("product.manage_product") }}">平台管理</a></li>
             </ul>
         </div>
     </div>
