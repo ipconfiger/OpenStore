@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/key_manage.html" afterPath="$PROJECT_DIR$/templates/key_manage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -23,10 +23,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="265" column="28" selection-start="9001" selection-end="9001" vertical-scroll-proportion="0.0">
+            <state line="252" column="52" selection-start="8664" selection-end="8664" vertical-scroll-proportion="0.12195122">
               <folding>
                 <element signature="e#18#33#0" expanded="true" />
               </folding>
@@ -45,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="key_manage.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="key_manage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/key_manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="89" selection-start="285" selection-end="285" vertical-scroll-proportion="0.19875777">
+            <state line="8" column="89" selection-start="285" selection-end="285" vertical-scroll-proportion="-5.12">
               <folding />
             </state>
           </provider>
@@ -101,8 +101,8 @@
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/nova/nova.py" />
-        <option value="$PROJECT_DIR$/product/views.py" />
         <option value="$PROJECT_DIR$/templates/key_manage.html" />
+        <option value="$PROJECT_DIR$/product/views.py" />
       </list>
     </option>
   </component>
@@ -580,19 +580,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/product/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/key_manage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="28" selection-start="9001" selection-end="9001" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#18#33#0" expanded="true" />
-          </folding>
+        <state line="8" column="89" selection-start="285" selection-end="285" vertical-scroll-proportion="-5.12">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/key_manage.html">
+    <entry file="file://$PROJECT_DIR$/product/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="89" selection-start="285" selection-end="285" vertical-scroll-proportion="0.19875777">
-          <folding />
+        <state line="252" column="52" selection-start="8664" selection-end="8664" vertical-scroll-proportion="0.12195122">
+          <folding>
+            <element signature="e#18#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

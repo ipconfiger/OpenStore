@@ -250,6 +250,7 @@ def create_key():
     g.db.add(userkey)
     g.db.flush()
     g.db.commit()
+    return redirect(url_for("product.show_key_manage"))
 
 
 @product.route("/key")
