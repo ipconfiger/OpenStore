@@ -5,7 +5,8 @@ from nova.nova import get_images
 from models import SysImage
 
 def main():
-    db.query(SysImage).all().delete()
+    db.query(SysImage).filter(SysImage.disabled==False).delete()
+    db.query(SysImage).filter(SysImage.disabled==True).delete()
     for image in get_images():
         db.add(SysImage(image["id"],image["name"]))
         print image["name"], " add to system"
