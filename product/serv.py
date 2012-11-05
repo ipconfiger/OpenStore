@@ -6,7 +6,7 @@ import logging as log
 from uuid import uuid4
 from flask import g, url_for, session
 from cPickle import loads, dumps
-from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant, Tenant, UserKey
+from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant, Tenant, UserKey, SysImage
 from common_error import DuplicateException, EmptyException
 
 
@@ -139,6 +139,8 @@ def create_oneitem(user, product_key, pay_type, pay_count, count):
     g.db.commit()
     return order
 
+def get_all_images():
+    return g.db.query(SysImage).all()
 
 def finish_order(order):
     import nova

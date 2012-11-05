@@ -66,7 +66,7 @@
             <td>{{ product.instance_name }}</td>
             <td>
                 {% if product.image_id %}
-                    {{ product.image_id }}
+                    {{ images[product.image_id] }}
                 {% else %}
                     未安装
                 {% endif %}
