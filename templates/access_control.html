@@ -1,0 +1,39 @@
+{% extends "base_cal2.html" %}
+{% block left %}
+    {% include "oper_nav.html" %}
+{% endblock %}
+{% block holder %}
+    <div class="page-header">
+        <h1>访问安全组管理<small></small></h1>
+    </div>
+    {% for group in groups %}
+        <dl>
+            <dt>{{ group.name }}&nbsp;&nbsp;<a href="">[删除]</a></dt>
+            <dd>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>协议</td>
+                        <td>远程IP</td>
+                        <td>远程端口</td>
+                        <td>本地端口</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for rule in group.rules %}
+                        <tr>
+                            <td>{{ rule.ip_protocol }}</td>
+                            <td>{{ rule.ip_range.cidr }}</td>
+                            <td>{{ rule.from_port }}</td>
+                            <td>{{ rule.to_port }}</td>
+                            <td>删除</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+    {% endfor %}
+
+{% endblock %}

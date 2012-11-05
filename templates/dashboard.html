@@ -1,8 +1,11 @@
-{% extends "mid_base.html" %}
+{% extends "base_cal2.html" %}
 {% block header %}
 
 {% endblock %}
-{% block mid %}
+{% block left %}
+    {% include "oper_nav.html" %}
+{% endblock %}
+{% block holder %}
     <blockquote xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
         <p>未完成订单</p>
         <small>未付款以及未完工的订单</small>

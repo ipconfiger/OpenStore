@@ -14,6 +14,10 @@ def auth(tenant_name=None, admin=None, password=None):
     else:
         return api.Token(admin, password, tenant_name)
 
+def user_auth(useraccount, tenant_name):
+    return auth(admin=useraccount.user.login_name.replace("@","").replace(".",""),password=useraccount.tenant_password,tenant_name=tenant_name)
+
+
 def all_tenant():
     results = []
     token = auth()
@@ -48,7 +52,7 @@ def all_key():
 
 def gen_key(useraccount, tenant_name):
     name = str(int(time.time()))
-    token = auth(tenant_name=tenant_name,admin=useraccount.user.login_name.replace("@","").replace(".",""),password=useraccount.tenant_password)
+    token = user_auth(useraccount, tenant_name)
     sec = api.Security(token)
     return sec.gen_key(name)
 
@@ -75,7 +79,7 @@ def get_images():
 
 
 def create_server(useraccount,tenant_name, server_name, favor_id, image_id, secure, key_name):
-    token = auth(tenant_name=tenant_name,admin=useraccount.user.login_name.replace("@","").replace(".",""),password=useraccount.tenant_password)
+    token = user_auth(useraccount, tenant_name)
     server_acc = api.Server(token)
     server_data = server_acc.create(server_name,image_id,favor_id,secure,key_name)
     log.error(server_data)
@@ -94,3 +98,8 @@ def server_status(server_id):
     server_access = api.Server(token,server_id=server_id)
     detail = server_access.detail()
     return api.ServerInstance(detail)
+
+def secury_groups(useraccount, tenant_name):
+    token = user_auth(useraccount, tenant_name)
+    secury = api.Security(token)
+    return secury.all()["security_groups"]

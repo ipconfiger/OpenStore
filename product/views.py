@@ -256,6 +256,17 @@ def down_key():
         g.db.rollback()
         return ""
 
+@product.route("/access")
+def show_access_control():
+    from nova import api
+    useraccount = get_user_account(g.current_login_id)
+    tenant = get_user_tenant(g.current_login_id)
+    groups = api().secury_groups(useraccount,tenant.tenant_name)
+    return render_template("access_control.html",**locals())
+
+@product.route("/keys")
+def show_key_manage():
+    return render_template("key_manage.html",**locals());
 
 
 @product.route("/manage",methods=['GET','POST'])
