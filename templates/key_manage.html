@@ -24,7 +24,12 @@
     <tr>
         <td>{{ userkey.key_name }}</td>
         <td>{{ userkey.create_time }}</td>
-        <td><a href="{{ url_for("product.down_key",key_id=userkey.id) }}">下载密钥</a></td>
+        <td>
+            {% if userkey.has_down %}
+            {% else %}
+            <a href="{{ url_for("product.down_key",key_id=userkey.id) }}">下载密钥</a>
+            {% endif %}
+        </td>
         <td>删除</td>
     </tr>
     {% endfor %}
