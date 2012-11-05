@@ -313,8 +313,9 @@ def manage_product():
                 p.flover_id = form.flover.data
                 p.monthly_price = int(form.monthly.data)
                 p.yearly_price = int(form.yearly.data)
+                p.detail = form.detail.data
             else:
-                p=Product(form.key.data, form.name.data, form.name.data, int(form.cpu.data), int(form.mem.data), int(form.storage.data), form.flover.data, int(form.monthly.data),int(form.yearly.data))
+                p=Product(form.key.data, form.name.data, form.detail.data, int(form.cpu.data), int(form.mem.data), int(form.storage.data), form.flover.data, int(form.monthly.data),int(form.yearly.data))
                 g.db.add(p)
             g.db.flush()
             g.db.commit()
