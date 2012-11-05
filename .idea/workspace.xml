@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37a039e-a3c2-4ab2-ac21-25ad9c7f36c6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/access_control.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/key_manage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/oper_nav.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nova/nova.py" afterPath="$PROJECT_DIR$/nova/nova.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product/views.py" afterPath="$PROJECT_DIR$/product/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/dashboard.html" afterPath="$PROJECT_DIR$/templates/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/orders.html" afterPath="$PROJECT_DIR$/templates/orders.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/views.py" afterPath="$PROJECT_DIR$/user/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/access_control.html" afterPath="$PROJECT_DIR$/templates/access_control.html" />
     </list>
     <list id="4d9ce632-6af4-45cc-8a95-2c52e3ebe07f" name="New changelist" comment="New changelist" />
     <ignored path="orbis.iws" />
@@ -63,7 +55,7 @@
       <file leaf-file-name="access_control.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/access_control.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="58" selection-start="298" selection-end="298" vertical-scroll-proportion="0.24844721">
+            <state line="9" column="45" selection-start="278" selection-end="278" vertical-scroll-proportion="0.17391305">
               <folding />
             </state>
           </provider>
@@ -571,7 +563,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/access_control.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="58" selection-start="298" selection-end="298" vertical-scroll-proportion="0.24844721">
+        <state line="9" column="45" selection-start="278" selection-end="278" vertical-scroll-proportion="0.17391305">
           <folding />
         </state>
       </provider>

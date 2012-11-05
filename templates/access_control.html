@@ -6,10 +6,25 @@
     <div class="page-header">
         <h1>访问安全组管理<small></small></h1>
     </div>
+    <form class="form-inline well">
+        <input type="text" class="input-large" placeholder="安全组名称">
+        <button class="btn btn-warning btn-small">新建安全组</button>
+    </form>
     {% for group in groups %}
         <dl>
             <dt>{{ group.name }}&nbsp;&nbsp;<a href="">[删除]</a></dt>
             <dd>
+            <form class="form-inline">
+                <select>
+                    <option value="TCP">TCP</option>
+                    <option value="UDP">UDP</option>
+                    <option value="ICMP">ICMP</option>
+                </select>
+                <input type="text" class="input-medium" placeholder="远程IP 0.0.0.0/0">
+                <input type="text" class="input-small" placeholder="远程端口">
+                <input type="text" class="input-small" placeholder="本地端口">
+                <button class="btn btn-warning btn-small">新建规则</button>
+            </form>
                 <table class="table">
                     <thead>
                     <tr>
@@ -27,7 +42,7 @@
                             <td>{{ rule.ip_range.cidr }}</td>
                             <td>{{ rule.from_port }}</td>
                             <td>{{ rule.to_port }}</td>
-                            <td>删除</td>
+                            <td>删除规则</td>
                         </tr>
                     {% endfor %}
                     </tbody>
