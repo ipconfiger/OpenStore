@@ -15,5 +15,5 @@ def index():
 @admin.route("/login",methods=["POST","GET"])
 def login():
     if request.method == "POST":
-        pass
+        return redirect(url_for("admin.index"))
     return render_template("admin/admin_login.html", **locals())

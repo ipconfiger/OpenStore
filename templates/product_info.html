@@ -1,0 +1,27 @@
+{% extends "base_cal2.html" %}
+{% block left %}
+    <ul class="nav nav-tabs nav-stacked">
+    {% for product in products %}
+        <li> <a href="">{{ product.name }}</a> </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+{% block holder %}
+    <div class="page-header">
+        <h1>产品详情<small>&lt;&lt;<a href="">查看购物车</a></small></h1>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <ul>
+                <li>产品名称：{{ product.name }}</li>
+                <li>计算单元：{{ product.cpu }}</li>
+                <li>内存单元：{{ product.memory|mems }}</li>
+                <li>存储容量：{{ product.storage }}</li>
+            </ul>
+        </div>
+        <div class="span6">
+            {{ product.detail }}
+        </div>
+    </div>
+
+{% endblock %}
