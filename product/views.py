@@ -247,6 +247,7 @@ def create_key():
     tn = get_user_tenant(g.current_login_id)
     key_pair = oper.gen_key(ua, tn.tenant_name, key_name = name)
     userkey = UserKey(key_content=key_pair)
+    userkey.user_id = g.current_login_id
     g.db.add(userkey)
     g.db.flush()
     g.db.commit()
