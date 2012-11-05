@@ -6,7 +6,7 @@ from json import dumps
 from flask import Blueprint, render_template, abort, request, g, redirect, url_for, session, send_file
 from jinja2 import TemplateNotFound
 from forms import *
-from models import Product, Favorable, Order, OrderProduct, UserProduct, Tenant
+from models import Product, Favorable, Order, OrderProduct, UserProduct, Tenant, SysImage
 from user.serv import get_user_login, get_user_account, get_user_profile, get_user_tenant
 import logging as log
 
@@ -189,9 +189,8 @@ def manage_orders():
 @product.route("/user_product/<user_product_id>")
 @login_required
 def show_create_server(user_product_id):
-    import nova
     userproduct = g.db.query(UserProduct).get(user_product_id)
-    images = nova.api().get_images()
+    images = g.db.query(SysImage).all()
     return render_template("creator.html",**locals())
 
 

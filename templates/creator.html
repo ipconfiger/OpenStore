@@ -76,7 +76,7 @@
                 <select id="images" name="image_id">
                     <option value="">请选择操作系统</option>
                     {% for image in images %}
-                    <option value="{{ image.id }}">{{ image.name }}</option>
+                    <option value="{{ image.image_key }}">{{ image.image_name }}</option>
                     {% endfor %}
                 </select>
             </div>
