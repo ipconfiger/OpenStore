@@ -360,6 +360,22 @@ class UserProduct(Base):
         self.disabled = False
 
 
+class UserKey(Base):
+    user_id = Column(Integer,ForeignKey("userlogin.id")) #关联用户ID
+    key_name = Column(String(20))
+    key_content = Column(String(2000))
+    __table_args__ = (
+        UniqueConstraint(key_name,),
+        TABLEARGS
+    )
+
+    def __init__(self, key_content = None):
+        from json import dumps
+        self.key_name = key_content["keypair"]["name"]
+        self.key_content = dumps(key_content)
+
+
+
 class SysImage(Base):
     """
     操作系统镜像
@@ -373,12 +389,13 @@ class SysImage(Base):
         TABLEARGS
     ) 
 
-    def __init__(self, key):
+    def __init__(self, key, name):
         """
         初始化操作系统镜像
         @key: 镜像在系统内的编号
         """
         self.image_key = key
+        self.image_name = name
         self.disabled = False
 
 class Tenant(Base):

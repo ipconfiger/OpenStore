@@ -202,14 +202,18 @@ def create_server():
     server_name = request.form.get("name")
     image_id = request.form.get("image_id")
     secure = request.form.get("secure")
+    key_name = request.form.get("key_name","")
     try:
-        server_id = serv.create_server(user_product_id, server_name, image_id, secure)
+        if not key_name:
+            key_name = serv.get_only_key(g.current_login_id)
+        server_id = serv.create_server(user_product_id, server_name, image_id, secure, key_name)
         log.error(server_id)
         return json_response(True,server_id)
     except Exception, ex:
         log.error(print_debug(ex))
         g.db.rollback()
         return json_response(False,u"未知异常")
+
 
 @product.route("/user_product/<user_product_id>",methods=["POST"])
 @login_required

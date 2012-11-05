@@ -103,3 +103,4 @@ def secury_groups(useraccount, tenant_name):
     token = user_auth(useraccount, tenant_name)
     secury = api.Security(token)
     return secury.all()["security_groups"]
+

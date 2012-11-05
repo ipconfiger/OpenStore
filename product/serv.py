@@ -6,7 +6,7 @@ import logging as log
 from uuid import uuid4
 from flask import g, url_for, session
 from cPickle import loads, dumps
-from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant, Tenant
+from models import UserLogin, UserProfile, UserAccount, Product, Order, OrderProduct, UserProduct, Favorable, UserTenant, Tenant, UserKey
 from common_error import DuplicateException, EmptyException
 
 
@@ -156,6 +156,8 @@ def finish_order(order):
         usertenant.admin_user_id = tenant['user_id']
         key_pair = nova.api().gen_key(useraccount, tenant["name"])
         usertenant.keypair = dumps(key_pair)
+        uk = UserKey(key_content=key_pair)
+        g.db.add(uk)
         g.db.add(usertenant)
     orderproducts = g.db.query(OrderProduct).filter(OrderProduct.order_id==order.id).all()
     for orderproduct in orderproducts:
@@ -164,7 +166,7 @@ def finish_order(order):
     g.db.flush()
     g.db.commit()
 
-def create_server(user_product_id, server_name, image_id, secury):
+def create_server(user_product_id, server_name, image_id, secury, sec_key):
     import nova
     from json import loads
     from user.serv import get_user_tenant, get_user_account
@@ -172,9 +174,8 @@ def create_server(user_product_id, server_name, image_id, secury):
     usertenant = get_user_tenant(userproduct.user_id)
     useraccount = get_user_account(userproduct.user_id)
     tenant = g.db.query(Tenant).get(usertenant.tenant_id)
-    keypair = loads(usertenant.keypair)
     product = g.db.query(Product).filter(Product.key==userproduct.product_key).one()
-    rs, server_id, password = nova.api().create_server(useraccount, tenant.name,server_name, product.flover_id, image_id, secury, keypair["keypair"]["name"])
+    rs, server_id, password = nova.api().create_server(useraccount, tenant.name,server_name, product.flover_id, image_id, secury, sec_key)
     if rs:
         userproduct.image_id = image_id
         userproduct.adminpass = password
@@ -184,6 +185,15 @@ def create_server(user_product_id, server_name, image_id, secury):
     g.db.flush()
     g.db.commit()
     return server_id
+
+def get_only_key(user_id):
+    userkey = g.db.query(UserKey).filter(UserKey.user_id==user_id).first()
+    if userkey:
+        return userkey.key_name
+    else:
+        from json import loads
+        usertenant = g.db.query(UserTenant).filter(UserTenant.user_id==user_id).one()
+        return loads(usertenant.keypair)["keypair"]["name"]
 
 
 def try_finish_create(user_product_id):
