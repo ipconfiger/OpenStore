@@ -6,7 +6,7 @@
     <div class="page-header">
         <h1>访问密钥管理<small></small></h1>
     </div>
-    <form class="form-inline well" method="POST" action="{{ product.create_key }}">
+    <form class="form-inline well" method="POST" action="{{ url_for("product.create_key") }}">
         <input name="key_name" type="text" class="input-large" placeholder="密钥名称">
         <button class="btn btn-warning btn-small">创建密钥</button>
     </form>
