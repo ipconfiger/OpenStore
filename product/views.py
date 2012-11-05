@@ -289,6 +289,14 @@ def show_key_manage():
     userkeys = g.db.query(UserKey).filter(UserKey.user_id==g.current_login_id).all()
     return render_template("key_manage.html",**locals())
 
+@product.route("/delete",methods=["POST"])
+def delete_product():
+    pkey = request.form.get("key")
+    g.db.query(Product).filter(Product.key==pkey).delete()
+    g.db.flush()
+    g.db.commit()
+    return json_response(True,None)
+
 
 @product.route("/manage",methods=['GET','POST'])
 def manage_product():
