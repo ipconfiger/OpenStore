@@ -292,6 +292,8 @@ def show_key_manage():
 @product.route("/delete",methods=["POST"])
 def delete_product():
     pkey = request.form.get("key")
+    g.db.query(OrderProduct).filter(OrderProduct.product_key==pkey).delete()
+    g.db.query(UserProduct).filter(UserProduct.product_key==pkey).delete()
     g.db.query(Product).filter(Product.key==pkey).delete()
     g.db.flush()
     g.db.commit()
