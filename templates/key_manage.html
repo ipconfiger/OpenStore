@@ -6,4 +6,28 @@
     <div class="page-header">
         <h1>访问密钥管理<small></small></h1>
     </div>
+    <form class="form-inline well" method="POST" action="{{ product.create_key }}">
+        <input name="key_name" type="text" class="input-large" placeholder="密钥名称">
+        <button class="btn btn-warning btn-small">创建密钥</button>
+    </form>
+    <table class="table">
+    <thead>
+    <tr>
+        <td>密钥名称</td>
+        <td>生成时间</td>
+        <td></td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for userkey in userkeys %}
+    <tr>
+        <td>{{ userkey.key_name }}</td>
+        <td>{{ userkey.create_time }}</td>
+        <td><a href="{{ url_for("product.down_key",key_id=userkey.id) }}">下载密钥</a></td>
+        <td>删除</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}

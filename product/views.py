@@ -6,7 +6,7 @@ from json import dumps
 from flask import Blueprint, render_template, abort, request, g, redirect, url_for, session, send_file
 from jinja2 import TemplateNotFound
 from forms import *
-from models import Product, Favorable, Order, OrderProduct, UserProduct, Tenant, SysImage
+from models import Product, Favorable, Order, OrderProduct, UserProduct, Tenant, SysImage, UserKey
 from user.serv import get_user_login, get_user_account, get_user_profile, get_user_tenant
 import logging as log
 
@@ -236,21 +236,35 @@ def server_vnc(user_product_id):
     product, vnc_url = serv.start_vnc(user_product_id)
     return render_template("vnc.html", **locals())
 
+
+@product.route("/key", methods=["POST"])
+@login_required
+def create_key():
+    from nova import api
+    name = request.form.get("key_name")
+    oper = api()
+    ua = get_user_account(g.current_login_id)
+    tn = get_user_tenant(g.current_login_id)
+    key_pair = oper.gen_key(ua, tn.tenant_name, key_name = name)
+    userkey = UserKey(key_content=key_pair)
+    g.db.add(userkey)
+    g.db.flush()
+    g.db.commit()
+
+
 @product.route("/key")
 @login_required
 def down_key():
     from json import loads
     from tempfile import NamedTemporaryFile
+    key_id = request.args.get("key_id")
     try:
-        user_id = g.current_login_id
-        userprofile = get_user_profile(user_id)
-        usertenant = get_user_tenant(user_id)
-        keypair = loads(usertenant.keypair)
+        userkey = g.db.query(UserKey).get(key_id)
+        keypair = loads(userkey.key_content)
         private_key = keypair["keypair"]["private_key"]
         f = NamedTemporaryFile()
         f.write(private_key)
-        userprofile.down_key=True
-        g.db.add(userprofile)
+        userkey.has_down =True
         g.db.flush()
         g.db.commit()
         return send_file(f.name,attachment_filename="private_key.pem",mimetype="application/octet-stream",as_attachment=True)
@@ -269,7 +283,9 @@ def show_access_control():
 
 @product.route("/keys")
 def show_key_manage():
-    return render_template("key_manage.html",**locals());
+    from models import UserKey
+    userkeys = g.db.query(UserKey).filter(UserKey.user_id==g.current_login_id).all()
+    return render_template("key_manage.html",**locals())
 
 
 @product.route("/manage",methods=['GET','POST'])

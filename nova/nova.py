@@ -50,8 +50,10 @@ def all_key():
     sec = api.Security(token)
     return sec.list_key()
 
-def gen_key(useraccount, tenant_name):
+def gen_key(useraccount, tenant_name, key_name = None):
     name = str(int(time.time()))
+    if key_name:
+        name = key_name
     token = user_auth(useraccount, tenant_name)
     sec = api.Security(token)
     return sec.gen_key(name)

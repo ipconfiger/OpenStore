@@ -364,6 +364,7 @@ class UserKey(Base):
     user_id = Column(Integer,ForeignKey("userlogin.id")) #关联用户ID
     key_name = Column(String(20))
     key_content = Column(String(2000))
+    has_down = Column(Boolean)
     __table_args__ = (
         UniqueConstraint(key_name,),
         TABLEARGS
